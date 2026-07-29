@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block title %}Quest Skills - Database - The Silk
+Web{% endblock %} {% block content %}
+<div class="container my-5 text-center">
+  <!-- Back Navigation Button -->
+  <div class="text-start mb-4">
+    <a
+      href="{{ url_for('quests') }}"
+      class="wiki-btn d-inline-flex align-items-center gap-2"
+      style="width: auto; padding: 6px 16px"
+    >
+      <i class="bi bi-chevron-left" aria-hidden="true"></i> Back to Quests
+      Database
+    </a>
+  </div>
+
+  <h1 class="text-white border-bottom border-secondary pb-2 mb-4">
+    Quest Skills Registry
+  </h1>
+  <p class="lead">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat.
+  </p>
+  <p class="text-muted">
+    Database entry logging unique movement mechanics, attack techniques, and
+    weaving disciplines unlocked across Pharloom milestones.
+  </p>
+</div>
+{% endblock %}

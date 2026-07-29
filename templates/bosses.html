@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block title %}Bosses & Enemies - Database{%
+endblock %} {% block content %}
+<div class="container my-5 text-center">
+  <!-- Back Navigation Button -->
+  <div class="text-start mb-4">
+    <a
+      href="{{ url_for('game_info') }}"
+      class="wiki-btn d-inline-flex align-items-center gap-2"
+      style="width: auto; padding: 6px 16px"
+    >
+      <i class="bi bi-chevron-left" aria-hidden="true"></i> Back to Info
+      Database
+    </a>
+  </div>
+
+  <h1 class="text-white border-bottom border-secondary pb-2 mb-4">
+    Bestiary: Bosses & Enemies
+  </h1>
+  <p class="lead">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Combat logs logging
+    threat level behavior loops, strike values, and health bars.
+  </p>
+</div>
+{% endblock %}

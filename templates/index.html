@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block title %}Home - My Flask Site{% endblock %} {%
+{% extends 'base.html' %} {% block title %}Home - The Silk Web{% endblock %} {%
 block content %}
 <!-- Hero Carousel -->
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -32,8 +32,8 @@ block content %}
         alt="Welcome"
       />
       <div class="carousel-caption d-none d-md-block">
-        <h2>Welcome to My Site</h2>
-        <p>Discover what we have to offer.</p>
+        <h2>Welcome to The Silk Web</h2>
+        <p>Silksong info with minimal spoilers.</p>
       </div>
     </div>
 
@@ -84,25 +84,21 @@ block content %}
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<!-- Rest of page content -->
-<div class="container mt-5">
-  <h1>Welcome!</h1>
-  <p class="lead">This site is built with Flask and Bootstrap.</p>
-</div>
 
-<!-- Hero Carousel (keep your existing carousel here) -->
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-  <!-- ... carousel code ... -->
+<!-- Welcome Section -->
+<div class="container mt-5 text-center reveal-on-scroll">
+  <h1>Welcome!</h1>
+  <p class="lead">Information with no spoilers!</p>
 </div>
 
 <!-- Feature Cards Section -->
 <section class="py-5">
   <div class="container">
-    <h2 class="text-center mb-4">Our Features</h2>
+    <h2 class="text-center mb-4 reveal-on-scroll">Our Features</h2>
 
     <div class="row">
       <!-- Card 1 -->
-      <div class="col-md-4 mb-4">
+      <div class="col-md-4 mb-4 reveal-on-scroll">
         <div class="card h-100">
           <img
             src="{{ url_for('static', filename='images/feature1.jpg') }}"
@@ -110,18 +106,20 @@ block content %}
             alt="Feature 1"
           />
           <div class="card-body">
-            <h5 class="card-title">Fast & Reliable</h5>
+            <h5 class="card-title">Main game info</h5>
             <p class="card-text">
-              Our platform is optimized for speed and reliability, ensuring a
-              seamless experience.
+              Discover how to get around hard areas, or what to do next. Almost
+              no spoilers.
             </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="{{ url_for('game_info') }}" class="btn btn-primary"
+              >Learn More</a
+            >
           </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="col-md-4 mb-4">
+      <!-- Card 2 (FIXED: Added link to your quests page route) -->
+      <div class="col-md-4 mb-4 reveal-on-scroll">
         <div class="card h-100">
           <img
             src="{{ url_for('static', filename='images/feature2.jpg') }}"
@@ -129,17 +127,19 @@ block content %}
             alt="Feature 2"
           />
           <div class="card-body">
-            <h5 class="card-title">Easy to Use</h5>
+            <h5 class="card-title">Side missions and quests.</h5>
             <p class="card-text">
-              Simple and intuitive interface designed with users in mind.
+              The stuff you wouldn't normally pay attention to.
             </p>
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="{{ url_for('quests') }}" class="btn btn-primary"
+              >Learn More</a
+            >
           </div>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="col-md-4 mb-4">
+      <!-- Card 3 (UPDATED: Changed from contact page into an expansion details link) -->
+      <div class="col-md-4 mb-4 reveal-on-scroll">
         <div class="card h-100">
           <img
             src="{{ url_for('static', filename='images/feature3.jpg') }}"
@@ -147,13 +147,13 @@ block content %}
             alt="Feature 3"
           />
           <div class="card-body">
-            <h5 class="card-title">24/7 Support</h5>
+            <h5 class="card-title">Future DLCs</h5>
             <p class="card-text">
-              Our dedicated team is here to help you anytime you need
-              assistance.
+              Upcoming expansion packs and downloadable contents planned down
+              the line.
             </p>
-            <a href="{{ url_for('contact') }}" class="btn btn-primary"
-              >Contact Us</a
+            <a href="{{ url_for('dlc_info') }}" class="btn btn-primary"
+              >Explore DLC</a
             >
           </div>
         </div>

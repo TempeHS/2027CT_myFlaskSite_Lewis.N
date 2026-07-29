@@ -1,15 +1,116 @@
-<!-- Navigation Bar -->
-<ul class="navbar-nav ms-auto">
+<!-- Navigation Bar Links Grid Layout -->
+<ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
+  <!-- Home Base Anchor Link -->
   <li class="nav-item">
     <a
-      class="nav-link {% if request.endpoint == 'home' %}active{% endif %}"
+      class="nav-link px-3 py-2 rounded-2 {% if request.endpoint == 'home' %}active{% endif %}"
       href="{{ url_for('home') }}"
       >Home</a
     >
   </li>
+
+  <!-- 1. MAIN INFO NESTED DROPDOWN SECTION -->
+  <li class="nav-item dropdown">
+    <a
+      class="nav-link dropdown-toggle px-3 py-2 rounded-2 {% if request.endpoint in ['game_info', 'hornet', 'threat_levels', 'primary_tools'] %}active{% endif %}"
+      href="#"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Main Info
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark shadow border-secondary">
+      <li>
+        <a
+          class="dropdown-item {% if request.endpoint == 'game_info' %}active{% endif %}"
+          href="{{ url_for('game_info') }}"
+          >Pharloom Archive Overview</a
+        >
+      </li>
+      <li><hr class="dropdown-divider border-secondary" /></li>
+      <li>
+        <!-- FIXED: Changed region_pharloom to hornet -->
+        <a
+          class="dropdown-item {% if request.endpoint == 'hornet' %}active{% endif %}"
+          href="{{ url_for('hornet') }}"
+          >Hornet</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item {% if request.endpoint == 'threat_levels' %}active{% endif %}"
+          href="{{ url_for('threat_levels') }}"
+          >Maps & Locations</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item {% if request.endpoint == 'primary_tools' %}active{% endif %}"
+          href="{{ url_for('primary_tools') }}"
+          >Bosses & Enemies</a
+        >
+      </li>
+    </ul>
+  </li>
+
+  <!-- 2. QUESTS NESTED DROPDOWN SECTION -->
+  <li class="nav-item dropdown">
+    <a
+      class="nav-link dropdown-toggle px-3 py-2 rounded-2 {% if request.endpoint in ['quests', 'quest_skills', 'quest_items', 'quest_rewards'] %}active{% endif %}"
+      href="#"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      Quests
+    </a>
+    <ul class="dropdown-menu dropdown-menu-dark shadow border-secondary">
+      <li>
+        <a
+          class="dropdown-item {% if request.endpoint == 'quests' %}active{% endif %}"
+          href="{{ url_for('quests') }}"
+          >Silk & Bone Tasks Overview</a
+        >
+      </li>
+      <li><hr class="dropdown-divider border-secondary" /></li>
+      <li>
+        <a
+          class="dropdown-item {% if request.endpoint == 'quest_skills' %}active{% endif %}"
+          href="{{ url_for('quest_skills') }}"
+          >Quest Skills</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item {% if request.endpoint == 'quest_items' %}active{% endif %}"
+          href="{{ url_for('quest_items') }}"
+          >Quest Items</a
+        >
+      </li>
+      <li>
+        <a
+          class="dropdown-item {% if request.endpoint == 'quest_rewards' %}active{% endif %}"
+          href="{{ url_for('quest_rewards') }}"
+          >Extra Rewards</a
+        >
+      </li>
+    </ul>
+  </li>
+
+  <!-- 3. FUTURE EXPANSIONS LINK MODULE -->
   <li class="nav-item">
     <a
-      class="nav-link {% if request.endpoint == 'contact' %}active{% endif %}"
+      class="nav-link px-3 py-2 rounded-2 {% if request.endpoint == 'dlc_info' %}active{% endif %}"
+      href="{{ url_for('dlc_info') }}"
+      >Future DLCs Info</a
+    >
+  </li>
+
+  <!-- 4. CORE CONTACT LINKS MODULE -->
+  <li class="nav-item">
+    <a
+      class="nav-link px-3 py-2 rounded-2 {% if request.endpoint == 'contact' %}active{% endif %}"
       href="{{ url_for('contact') }}"
       >Contact</a
     >

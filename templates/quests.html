@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block title %}Quests - Database - The Silk Web{%
+endblock %} {% block content %}
+<div class="container my-5">
+  <div class="row">
+    <div class="col-lg-8">
+      <h1 class="mb-2 text-white border-bottom border-secondary pb-2">
+        Silk & Bone Tasks
+      </h1>
+      <p class="text-muted small mb-4">
+        From The Silk Web, the comprehensive spoiler-free database repository.
+      </p>
+
+      <p class="lead">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Cras sed felis eget
+        velit aliquet sagittis id consectetur purus.
+      </p>
+
+      <h3 class="mt-4 text-white">Tracking Secondary Objectives</h3>
+      <p>
+        Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula.
+        Habitasse platea dictumst vestibulum rhoncus est pellentesque elit
+        ullamcorper. Dignissim sodales ut eu sem integer vitae justo eget magna.
+        Neque viverra justo nec ultrices dui sapien eget mi proin. Mattis
+        vulputate enim nulla aliquet porttitor lacus luctus.
+      </p>
+
+      <h3 class="mt-4 text-white">Rewards and Completion Rates</h3>
+      <p>
+        Id leo in vitae turpis massa sed elementum tempus egestas. Pellentesque
+        diam volutpat commodo sed egestas egestas fringilla phasellus. Sit amet
+        est placerat in egestas erat imperdiet. Enim lobortis scelerisque
+        fermentum dui faucibus in ornare quam.
+      </p>
+    </div>
+
+    <!-- Sidebar converted to a clean single line of links -->
+    <div class="col-lg-4">
+      <div class="wiki-infobox-card p-3 sticky-top" style="top: 100px">
+        <div class="wiki-card-header bg-dark text-center fw-bold py-2 mb-3">
+          Main Types
+        </div>
+        <div
+          class="text-center d-flex flex-wrap justify-content-center align-items-center gap-2 py-2"
+        >
+          <a
+            href="{{ url_for('quest_skills') }}"
+            class="wiki-inline-link text-decoration-none"
+            >Quest Skills</a
+          >
+          <span class="text-secondary opacity-50">|</span>
+          <a
+            href="{{ url_for('quest_items') }}"
+            class="wiki-inline-link text-decoration-none"
+            >Quest Items</a
+          >
+          <span class="text-secondary opacity-50">|</span>
+          <a
+            href="{{ url_for('quest_rewards') }}"
+            class="wiki-inline-link text-decoration-none"
+            >Extra Rewards</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

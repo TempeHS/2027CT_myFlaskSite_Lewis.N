@@ -1,13 +1,209 @@
 /* Custom styles for My Flask Site */
 
-body {
-  padding-top: 70px; /* Space for fixed navbar */
+/* Global Smooth Scrolling Configuration */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* Prevents the fixed navbar from overlapping anchored headings */
+  height: 100%;
 }
 
-/* Hero Carousel Styles */
+body {
+  padding-top: 70px; /* Space for fixed navbar */
+  min-height: 100vh;
+  margin: 0;
+
+  /* Loads your background image with a dark vignette tint overlay for maximum text readability */
+  background:
+    linear-gradient(rgba(10, 13, 18, 0.65), rgba(3, 4, 6, 0.85)),
+    url("../images/bg.jpg") no-repeat center center fixed !important;
+  background-size: cover !important; /* Scale wallpaper dynamically to fill the screen */
+  color: #f0f2f5 !important; /* Silversmith text tint to pop against the dark canvas */
+}
+
+/* ==========================================================================
+   Responsive Navbar Transitional Effects (Fades on Scroll)
+   ========================================================================== */
+.navbar {
+  /* Establishes a smooth 0.4 second animation curve when the background class tags flip */
+  transition:
+    background-color 0.4s ease,
+    backdrop-filter 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease !important;
+  background-color: #212529 !important; /* Starts as a solid dark background color at the top */
+}
+
+/* Triggers automatically via JavaScript once the user scrolls down the viewport */
+.navbar.navbar-scrolled {
+  background-color: rgba(
+    10,
+    13,
+    18,
+    0.45
+  ) !important; /* Fades down to an ultra-clean semi-transparent dark tint */
+  backdrop-filter: blur(
+    8px
+  ) !important; /* Frost overlay effect so text content flowing underneath blurs elegantly */
+  border-color: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ) !important; /* Softens the border strip separator accent */
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3) !important; /* Drops a deeper atmospheric shadow ridge */
+}
+
+/* ==========================================================================
+   Silksong Needle Link Underline Animations (Works on All Pages)
+   ========================================================================== */
+.navbar-nav .nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Base style for the needle underline on hover */
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  height: 4px; /* Thickness of the needle blade */
+  bottom: -2px;
+  left: 50%;
+  background-color: #ffffff; /* White needle blade base color */
+  width: 0;
+  transform: translateX(-50%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Custom clip-path shaping a horizontal double-pointed Silksong Needle blade */
+  clip-path: polygon(0% 50%, 15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%);
+  opacity: 0;
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.9),
+    0 0 4px rgba(255, 255, 255, 0.4); /* High-intensity white soul-glow effect */
+}
+
+/* When hovered or active, expand the needle outward symmetrically */
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 85%;
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Dropdown Toggle Needle Override (The Vertical Arrow Replacement)
+   ========================================================================== */
+
+/* 1. Remove Bootstrap's default standard downward arrow graphic asset */
+.navbar-nav .dropdown-toggle::after {
+  display: none !important;
+}
+
+/* 2. Add structural spacing for the vertical indicator icon next to text */
+.navbar-nav .dropdown-toggle {
+  gap: 6px;
+}
+
+/* 3. Inject a distinct vertical downward needle icon right next to dropdown links */
+.navbar-nav .dropdown-toggle::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: currentColor;
+  /* Traces just a sharp triangular needle tip head pointing down */
+  clip-path: polygon(0% 20%, 100% 20%, 50% 90%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+  order: 2; /* Forces it to sit cleanly after the text string */
+}
+
+/* 4. Smoothly rotate the sharp vertical needle upside down when clicked/expanded */
+.navbar-nav .dropdown-toggle.show::before {
+  transform: rotate(180deg);
+  color: #ffffff; /* White active tracking tint for the needle icon */
+}
+
+/* ==========================================================================
+   Hero Carousel Styles with Ornate Silksong Title Text Borders
+   ========================================================================== */
+#heroCarousel {
+  position: relative;
+  /* Radiant silver boundary frames encasing the image view slider container */
+  border-top: 2px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  margin-bottom: 50px;
+  background-color: transparent !important;
+  backdrop-filter: none !important; /* FIXED: Prevents any background blurring from affecting the carousel */
+}
+
+/* Upper Decorative Border Flairs (The Ornate Scroll Filigree Wings) */
+#heroCarousel::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 14px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.35
+  ); /* Brightened slightly to stand out */
+  /* Custom vector mapping to trace symmetric decorative crown horns above the carousel element */
+  clip-path: polygon(
+    0% 0%,
+    20% 60%,
+    45% 40%,
+    50% 100%,
+    55% 40%,
+    80% 60%,
+    100% 0%,
+    75% 100%,
+    25% 100%
+  );
+  z-index: 10;
+}
+
+/* Lower Decorative Border Flairs (The Downward Pointing Vine Accents) */
+#heroCarousel::after {
+  content: "";
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 14px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.35
+  ); /* Brightened slightly to stand out */
+  /* Custom vector mapping to trace symmetric thorn extensions below the carousel frame */
+  clip-path: polygon(
+    0% 100%,
+    20% 40%,
+    45% 60%,
+    50% 0%,
+    55% 60%,
+    80% 40%,
+    100% 100%,
+    75% 0%,
+    25% 0%
+  );
+  z-index: 10;
+}
+
 .carousel-item img {
   height: 500px;
   object-fit: cover; /* Crop images to fit */
+  filter: none !important; /* FIXED: Forces the browser to keep the hero image 100% sharp and unblurred */
+  transform: translateZ(
+    0
+  ); /* Hardware acceleration trick to maintain pixel-perfect crispness */
 }
 
 .carousel-caption {
@@ -32,8 +228,19 @@ body {
   }
 }
 
-/* Feature Cards */
+/* ==========================================================================
+   Hollow Knight Wiki Infobox Card Layout Styles
+   ========================================================================== */
 .card {
+  background-color: rgba(
+    22,
+    28,
+    36,
+    0.75
+  ) !important; /* Translucent background layout */
+  border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Muted silver border lines */
+  color: #e2e8f0 !important;
+  backdrop-filter: blur(4px); /* Frost overlay container filter */
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
@@ -41,7 +248,7 @@ body {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05); /* Soft white hovering shadow aura */
 }
 
 .card-img-top {
@@ -51,12 +258,13 @@ body {
 
 /* Section Styles */
 section {
-  background-color: #f8f9fa;
+  background-color: transparent !important; /* Lets your background image show through */
 }
 
 section h2 {
   font-weight: bold;
 }
+
 /* Contact Page Styles */
 .map-container {
   border-radius: 10px;
@@ -70,7 +278,9 @@ section h2 {
 
 .contact-info {
   padding: 20px;
-  background-color: #fff;
+  background-color: rgba(22, 28, 36, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -82,4 +292,98 @@ section h2 {
 
 .contact-info a:hover {
   text-decoration: underline;
+}
+
+/* Contact Form Styles */
+.contact-form {
+  padding: 30px;
+  background-color: rgba(22, 28, 36, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-control,
+.contact-form .form-select {
+  padding: 12px;
+  font-size: 1rem;
+  background-color: rgba(10, 13, 18, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.contact-form .form-control:focus,
+.contact-form .form-select:focus {
+  background-color: rgba(10, 13, 18, 0.9);
+  color: #fff;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.15);
+}
+
+.contact-form .btn {
+  padding: 12px;
+  font-weight: 600;
+}
+
+/* Make form labels slightly bold */
+.contact-form .form-label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* Scroll Reveal Animation Styles */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Inline Sidebar Navigation Links Layout
+   ========================================================================== */
+.wiki-inline-link {
+  color: rgba(240, 242, 245, 0.8) !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.wiki-inline-link:hover {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.08);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   Wiki Return Button Custom Adjustments
+   ========================================================================== */
+.wiki-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: all 0.25s ease-in-out;
+}
+.wiki-btn:hover {
+  background-color: #ffffff;
+  color: #0a0d12;
+  border-color: #ffffff;
 }
