@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block title %}Search Error - The Silk Web{%
+endblock %} {% block content %}
+<div class="container my-5 py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+      <!-- Silksong Decorative Error Frame -->
+      <div class="wiki-infobox-card p-5 reveal-on-scroll reveal-active">
+        <div class="mb-4">
+          <i
+            class="bi bi-exclamation-triangle-fill text-warning fs-1"
+            aria-hidden="true"
+          ></i>
+        </div>
+
+        <h1 class="text-white mb-3">Database Record Not Found</h1>
+        <p class="lead mb-4">
+          No matching entries discovered for:
+          <strong class="text-warning">"{{ query }}"</strong>
+        </p>
+
+        <div class="border-top border-secondary pt-4 mt-4">
+          <h5 class="text-white mb-3">
+            Did you mean to look for one of these?
+          </h5>
+          <div class="d-flex flex-wrap justify-content-center gap-3 my-3">
+            {% for item in suggestions %}
+            <a
+              href="{{ url_for(item.url) }}"
+              class="wiki-btn"
+              style="width: auto; padding: 8px 20px"
+            >
+              {{ item.label }}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Quick Return Link -->
+        <div class="mt-4 pt-3">
+          <a
+            href="{{ url_for('home') }}"
+            class="text-secondary text-decoration-none wiki-inline-link"
+          >
+            <i class="bi bi-arrow-left" aria-hidden="true"></i> Return to
+            Homepage
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

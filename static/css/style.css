@@ -4,19 +4,19 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px; /* Prevents the fixed navbar from overlapping anchored headings */
-  height: 100%;
+  min-height: 100%; /* Allows full vertical stretching on long scroll columns */
 }
 
 body {
   padding-top: 70px; /* Space for fixed navbar */
-  min-height: 100vh;
+  min-height: 100vh; /* Keeps background locked to minimum screen fill heights */
   margin: 0;
-
+  
   /* Loads your background image with a dark vignette tint overlay for maximum text readability */
-  background:
-    linear-gradient(rgba(10, 13, 18, 0.65), rgba(3, 4, 6, 0.85)),
-    url("../images/bg.jpg") no-repeat center center fixed !important;
+  background: linear-gradient(rgba(10, 13, 18, 0.65), rgba(3, 4, 6, 0.85)), 
+              url('../images/bg.jpg') no-repeat center center fixed !important;
   background-size: cover !important; /* Scale wallpaper dynamically to fill the screen */
+  background-attachment: fixed !important; /* Locks background image firmly behind content scrolls */
   color: #f0f2f5 !important; /* Silversmith text tint to pop against the dark canvas */
 }
 
@@ -25,31 +25,15 @@ body {
    ========================================================================== */
 .navbar {
   /* Establishes a smooth 0.4 second animation curve when the background class tags flip */
-  transition:
-    background-color 0.4s ease,
-    backdrop-filter 0.4s ease,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease !important;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease !important;
   background-color: #212529 !important; /* Starts as a solid dark background color at the top */
 }
 
 /* Triggers automatically via JavaScript once the user scrolls down the viewport */
 .navbar.navbar-scrolled {
-  background-color: rgba(
-    10,
-    13,
-    18,
-    0.45
-  ) !important; /* Fades down to an ultra-clean semi-transparent dark tint */
-  backdrop-filter: blur(
-    8px
-  ) !important; /* Frost overlay effect so text content flowing underneath blurs elegantly */
-  border-color: rgba(
-    255,
-    255,
-    255,
-    0.05
-  ) !important; /* Softens the border strip separator accent */
+  background-color: rgba(10, 13, 18, 0.45) !important; /* Fades down to an ultra-clean semi-transparent dark tint */
+  backdrop-filter: blur(8px) !important; /* Frost overlay effect so text content flowing underneath blurs elegantly */
+  border-color: rgba(255, 255, 255, 0.05) !important; /* Softens the border strip separator accent */
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3) !important; /* Drops a deeper atmospheric shadow ridge */
 }
 
@@ -124,86 +108,20 @@ body {
 }
 
 /* ==========================================================================
-   Hero Carousel Styles with Ornate Silksong Title Text Borders
+   Hero Carousel Styles (Borders and Blurs Completely Removed)
    ========================================================================== */
 #heroCarousel {
   position: relative;
-  /* Radiant silver boundary frames encasing the image view slider container */
-  border-top: 2px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
   margin-bottom: 50px;
   background-color: transparent !important;
-  backdrop-filter: none !important; /* FIXED: Prevents any background blurring from affecting the carousel */
-}
-
-/* Upper Decorative Border Flairs (The Ornate Scroll Filigree Wings) */
-#heroCarousel::before {
-  content: "";
-  position: absolute;
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  height: 14px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.35
-  ); /* Brightened slightly to stand out */
-  /* Custom vector mapping to trace symmetric decorative crown horns above the carousel element */
-  clip-path: polygon(
-    0% 0%,
-    20% 60%,
-    45% 40%,
-    50% 100%,
-    55% 40%,
-    80% 60%,
-    100% 0%,
-    75% 100%,
-    25% 100%
-  );
-  z-index: 10;
-}
-
-/* Lower Decorative Border Flairs (The Downward Pointing Vine Accents) */
-#heroCarousel::after {
-  content: "";
-  position: absolute;
-  bottom: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  height: 14px;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.35
-  ); /* Brightened slightly to stand out */
-  /* Custom vector mapping to trace symmetric thorn extensions below the carousel frame */
-  clip-path: polygon(
-    0% 100%,
-    20% 40%,
-    45% 60%,
-    50% 0%,
-    55% 60%,
-    80% 40%,
-    100% 100%,
-    75% 0%,
-    25% 0%
-  );
-  z-index: 10;
+  backdrop-filter: none !important;
 }
 
 .carousel-item img {
   height: 500px;
   object-fit: cover; /* Crop images to fit */
-  filter: none !important; /* FIXED: Forces the browser to keep the hero image 100% sharp and unblurred */
-  transform: translateZ(
-    0
-  ); /* Hardware acceleration trick to maintain pixel-perfect crispness */
+  filter: none !important; /* Guarantees crisp image rendering */
+  transform: translateZ(0); /* Hardware acceleration layout safety helper */
 }
 
 .carousel-caption {
@@ -229,21 +147,14 @@ body {
 }
 
 /* ==========================================================================
-   Hollow Knight Wiki Infobox Card Layout Styles
+   Feature Cards Layout Configuration
    ========================================================================== */
 .card {
-  background-color: rgba(
-    22,
-    28,
-    36,
-    0.75
-  ) !important; /* Translucent background layout */
+  background-color: rgba(22, 28, 36, 0.75) !important; /* Translucent background layout */
   border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Muted silver border lines */
   color: #e2e8f0 !important;
   backdrop-filter: blur(4px); /* Frost overlay container filter */
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -336,9 +247,7 @@ section h2 {
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(30px);
-  transition:
-    opacity 0.8s ease-out,
-    transform 0.8s ease-out;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   will-change: opacity, transform;
 }
 
@@ -366,7 +275,7 @@ section h2 {
 }
 
 /* ==========================================================================
-   Wiki Return Button Custom Adjustments
+   Wiki Return/Database Action Button Custom Adjustments
    ========================================================================== */
 .wiki-btn {
   display: block;
@@ -382,8 +291,36 @@ section h2 {
   border-radius: 3px;
   transition: all 0.25s ease-in-out;
 }
+
 .wiki-btn:hover {
   background-color: #ffffff;
   color: #0a0d12;
   border-color: #ffffff;
 }
+
+/* ==========================================================================
+   Home Page Top Right Search Form Utility Customization
+   ========================================================================== */
+.wiki-search-form .form-control {
+  background-color: rgba(22, 28, 36, 0.75) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  font-size: 0.9rem;
+  border-right: none;
+}
+
+.wiki-search-form .form-control:focus {
+  border-color: #ffffff !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15) !important;
+}
+
+.wiki-search-form .input-group-text {
+  border-right: none;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.wiki-search-form .btn {
+  background-color: rgba(255, 255, 255, 0.04);
+  font-size: 0.9rem;
+transition: all 0.2s ease-in-out;}.wiki-search-form .btn:hover {background-color: #ffffff;color: #0a0d12;border-color: #ffffff !important;}/* ==========================================================================Character Profile Infobox Layout Tweaks========================================================================== */.wiki-infobox-card {background-color: rgba(16, 21, 28, 0.85) !important;border: 2px solid rgba(255, 255, 255, 0.12) !important;border-radius: 4px;overflow: hidden;}.wiki-infobox-card .wiki-card-table {background-color: rgba(0, 0, 0, 0.25);border-radius: 4px;overflow: hidden;border: 1px solid rgba(255, 255, 255, 0.05);}.wiki-infobox-card .wiki-table-row {display: flex;align-items: center;border-bottom: 1px solid rgba(255, 255, 255, 0.05);}.wiki-infobox-card .wiki-table-row:last-child {border-bottom: none;}.wiki-infobox-card .wiki-label {width: 45%;font-size: 0.85rem;padding: 10px;font-weight: 600;background-color: rgba(255, 255, 255, 0.02);color: rgba(240, 242, 245, 0.7);border-right: 1px solid rgba(255, 255, 255, 0.05);}.wiki-infobox-card .wiki-value {width: 55%;font-size: 0.85rem;padding: 10px;color: #ffffff;}.wiki-card-header {background-color: rgba(255, 255, 255, 0.06);border-bottom: 2px solid rgba(255, 255, 255, 0.15);color: #ffffff;}.wiki-card-img-container {padding: 12px;background-color: rgba(0, 0, 0, 0.2);border-bottom: 1px solid rgba(255, 255, 255, 0.08);}.x-small {font-size: 0.75rem;}/* ==========================================================================Custom 404 Exception Page Icon Animations========================================================================== /.animate-pulse {animation: soulPulse 2.5s infinite ease-in-out;display: inline-block;color: #dc3545; / Bootstrap hazard red fallback */filter: drop-shadow(0 0 5px rgba(220, 53, 69, 0.4));}@keyframes soulPulse {0% {transform: scale(1);filter: drop-shadow(0 0 5px rgba(220, 53, 69, 0.4));opacity: 0.8;}50% {transform: scale(1.08);filter: drop-shadow(0 0 15px rgba(220, 53, 69, 0.8));opacity: 1;}100% {transform: scale(1);filter: drop-shadow(0 0 5px rgba(220, 53, 69, 0.4));opacity: 0.8;}}
