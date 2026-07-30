@@ -37,10 +37,13 @@ This is the most important part of your documentation — it shows your website 
   [Watch the Walkthrough](./docs/walkthrough.mp4)
 -->
 
-| Field            | Detail |
+| Field/Feature            | Detail |
 | ---------------- | ------ |
-| **Link / Embed** |        |
-| **Duration**     |        |
+| Homepage |   <img width="766" height="450" alt="Animation" src="https://github.com/user-attachments/assets/264ec2bd-2c0b-48c5-8fbb-9d9f7899453b" />                                     This video showcases the Silk Web homepage, including the hero section, background design, carousel, feature cards, and navigation buttons. It demonstrates the main layout and interactive elements that allow users to explore different sections of the website. |
+|  Navbar   |     <img width="550" height="323" alt="Animation2" src="https://github.com/user-attachments/assets/564b60da-e8eb-47a1-9d80-7168dbacefd3" />  This video demonstrates the responsive navigation system, including dropdown menus, dropdown arrows, page links, logo redirection, search bar functionality, and the dark/light mode toggle.  |
+| Credits |  <img width="800" height="470" alt="Animation3" src="https://github.com/user-attachments/assets/ca6a62d6-fc94-4274-bbb3-54c2990107ee" /> This video displays the Credits page, showing the resources, references, and external materials used during the development of Silk Web.  |
+| Mobile Homepage |  <img width="600" height="878" alt="Animation4" src="https://github.com/user-attachments/assets/f066953a-28ae-4350-b2d9-3615f088c148" />  This video demonstrates Silk Web’s responsive design by resizing the browser window and showing how the layout adapts. It highlights the mobile navbar hamburger menu, stacked content, and adjusted page elements for smaller screens.   |
+| Extra Features |    <img width="601" height="354" alt="Animation5" src="https://github.com/user-attachments/assets/2d59572f-1b3d-43fe-a93b-a85a76b42cc6" />  This video highlights additional website features, including animations, hover effects, theme switching, interactive cards, and other design improvements that enhance the overall user experience. |
 
 **Your walkthrough should show:**
 
