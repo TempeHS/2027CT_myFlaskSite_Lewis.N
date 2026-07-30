@@ -39,8 +39,7 @@ This is the most important part of your documentation — it shows your website 
 
 | Field/Feature            | Detail |
 | ---------------- | ------ |
-| Homepage |   <img width="766" height="450" alt="Animation" src="https://github.com/user-attachments/assets/264ec2bd-2c0b-48c5-8fbb-9d9f7899453b" />  
-This video showcases the Silk Web homepage, including the hero section, background design, carousel, feature cards, and navigation buttons. It demonstrates the main layout and interactive elements that allow users to explore different sections of the website. |
+| Homepage |   <img width="766" height="450" alt="Animation" src="https://github.com/user-attachments/assets/264ec2bd-2c0b-48c5-8fbb-9d9f7899453b" />                                     This video showcases the Silk Web homepage, including the hero section, background design, carousel, feature cards, and navigation buttons. It demonstrates the main layout and interactive elements that allow users to explore different sections of the website. |
 |  Navbar   |            |
 | Other Pages | |
 | Search |   |
