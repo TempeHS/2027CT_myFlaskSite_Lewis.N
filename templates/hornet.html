@@ -1,24 +1,29 @@
-{% extends 'base.html' %} {% block title %}Hornet (Silksong) - Database - The
-Silk Web{% endblock %} {% block content %}
+{% extends 'base.html' %} {% block title %} Hornet (Silksong) - Database - The
+Silk Web {% endblock %} {% block content %}
+
 <div class="container my-5">
-  <!-- Back to Main Directory Button Link -->
-  <div class="text-start mb-4">
-    <a
-      href="{{ url_for('game_info') }}"
-      class="wiki-btn d-inline-flex align-items-center gap-2"
-      style="width: auto; padding: 6px 16px"
-    >
-      <i class="bi bi-chevron-left" aria-hidden="true"></i> Back to Info
-      Database
-    </a>
-  </div>
+  <!-- Breadcrumb Navigation -->
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('home') }}">Home</a>
+      </li>
+
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('game_info') }}">Main Info</a>
+      </li>
+
+      <li class="breadcrumb-item active" aria-current="page">Hornet</li>
+    </ol>
+  </nav>
 
   <div class="row g-4">
-    <!-- LEFT SIDEBAR WRAPPER: Comprehensive Lore and Details -->
+    <!-- LEFT CONTENT -->
     <div class="col-lg-8">
       <h1 class="text-white border-bottom border-secondary pb-2 mb-3">
         Hornet (Silksong)
       </h1>
+
       <p class="text-muted small mb-4">
         From The Silk Web, the comprehensive spoiler-free character database
         repository.
@@ -34,6 +39,7 @@ Silk Web{% endblock %} {% block content %}
       <h3 class="mt-4 text-white border-bottom border-secondary pb-1">
         Background
       </h3>
+
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -45,54 +51,49 @@ Silk Web{% endblock %} {% block content %}
       <h3 class="mt-4 text-white border-bottom border-secondary pb-1">
         Abilities & Weaving Combat
       </h3>
+
       <p>
-        Unlike her combat behaviors observed in previous database encounters,
+        Unlike her combat behaviours observed in previous database encounters,
         Hornet utilizes advanced silk-weaving disciplines to traverse
         environmental hazards and dispatch hostiles within Pharloom:
       </p>
+
       <ul>
         <li>
           <strong>Silkspear:</strong> Hornet throws the Needle forward, piercing
-          enemies. The Silkspear deals 3x Needle Damage on hit.
+          enemies. The Silkspear deals 3× Needle Damage on hit.
         </li>
+
         <li>
-          <strong>Thread Storm:</strong> Creates a whirl of Silk centered on
-          Hornet that strikes 5 times, which can be extended to 11 times via
-          repeated input of the SKILL/TOOL button. Thread Storm deals 0.75x
-          Needle Damage in the first 4 hits, the 5th hit deals 0.25x Needle
-          Damage, and the remaining hits deal damage equal to current Needle
-          Level (minimum of 1). Thread storm will destroy most weak projectiles.
+          <strong>Thread Storm:</strong> Creates a whirl of Silk centred on
+          Hornet that strikes multiple times and destroys most weak projectiles.
         </li>
+
         <li>
-          <strong> Cross Stitch:</strong> Hornet raises the Needle in a
-          defensive stance, countering with a flurry of 4 attacks upon blocking
-          a hit. Anything that is able to hurt Hornet can be blocked by Cross
-          Stitch, including enemy contact damage. Cross Stitch deals 0.75x
-          Needle Damage on hit, rounding up, resulting in a total of 3x Needle
-          Damage if all hits connect.
+          <strong>Cross Stitch:</strong> Hornet raises the Needle in a defensive
+          stance before counterattacking with a flurry of strikes.
         </li>
       </ul>
 
       <h3 class="mt-4 text-white border-bottom border-secondary pb-1">
         Historical Context
       </h3>
+
       <p>
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-        officia deserunt mollit animi id est laborum. Aliquam ut porttitor leo a
+        officia deserunt mollit anim id est laborum. Aliquam ut porttitor leo a
         diam sollicitudin tempor. Magna eget est lorem ipsum dolor sit amet
-        consectetur. Mollis pretium lorem primis iaculis cubilia scelerisque
-        platea.
+        consectetur.
       </p>
     </div>
 
-    <!-- RIGHT SIDEBAR WRAPPER: Character Technical Profile Infobox -->
+    <!-- RIGHT INFOBOX -->
     <div class="col-lg-4">
       <div class="wiki-infobox-card p-3 sticky-top" style="top: 100px">
         <div class="wiki-card-header bg-dark text-center fw-bold py-2 mb-2">
           Hornet
         </div>
 
-        <!-- Character Sprite Container Frame -->
         <div class="wiki-card-img-container mb-3">
           <img
             src="{{ url_for('static', filename='images/hornet.jpg') }}"
@@ -102,28 +103,32 @@ Silk Web{% endblock %} {% block content %}
           />
         </div>
 
-        <!-- Wiki Technical Character Specifications Rows Grid -->
         <div class="wiki-card-table">
           <div class="wiki-table-row">
             <span class="wiki-label">Character Class</span>
             <span class="wiki-value">Protagonist / Playable</span>
           </div>
+
           <div class="wiki-table-row">
             <span class="wiki-label">Weapon</span>
             <span class="wiki-value">Silksong Needle</span>
           </div>
+
           <div class="wiki-table-row">
             <span class="wiki-label">Origin Kingdom</span>
             <span class="wiki-value">Hallownest</span>
           </div>
+
           <div class="wiki-table-row">
             <span class="wiki-label">Current Location</span>
             <span class="wiki-value">Kingdom of Pharloom</span>
           </div>
+
           <div class="wiki-table-row">
             <span class="wiki-label">Allies</span>
             <span class="wiki-value">Pharloom Citizens</span>
           </div>
+
           <div class="wiki-table-row">
             <span class="wiki-label">Database Status</span>
             <span class="wiki-value text-success">Fully Documented</span>
@@ -133,4 +138,5 @@ Silk Web{% endblock %} {% block content %}
     </div>
   </div>
 </div>
+
 {% endblock %}

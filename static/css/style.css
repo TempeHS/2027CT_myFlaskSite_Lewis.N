@@ -1,326 +1,644 @@
-/* Custom styles for My Flask Site */
+/* ======================================================
+   THE SILK WEB THEME SYSTEM
+====================================================== */
 
-/* Global Smooth Scrolling Configuration */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px; /* Prevents the fixed navbar from overlapping anchored headings */
-  min-height: 100%; /* Allows full vertical stretching on long scroll columns */
+:root {
+  /* Backgrounds */
+  --bg-main:
+    linear-gradient(rgba(10, 13, 18, 0.65), rgba(3, 4, 6, 0.85)),
+    url("../images/bg.jpg");
+
+  --bg-surface: rgba(22, 28, 36, 0.75);
+  --bg-surface-2: rgba(16, 21, 28, 0.85);
+
+  /* Navbar */
+
+  --navbar: #212529;
+  --navbar-scroll: rgba(10, 13, 18, 0.45);
+
+  /* Text */
+
+  --text: #f0f2f5;
+  --text-soft: rgba(240, 242, 245, 0.75);
+
+  /* Cards */
+
+  --card: rgba(22, 28, 36, 0.75);
+  --card-border: rgba(255, 255, 255, 0.1);
+
+  /* Buttons */
+
+  --button: rgba(255, 255, 255, 0.05);
+  --button-hover: #ffffff;
+  --button-text: #ffffff;
+
+  /* Inputs */
+
+  --input: rgba(10, 13, 18, 0.8);
+
+  /* Accent */
+
+  --accent: #0d6efd;
+}
+
+/* ===================================
+        LIGHT MODE
+=================================== */
+
+html[data-theme="light"] {
+  --bg-main:
+    linear-gradient(rgba(255, 255, 255, 0.72), rgba(248, 249, 250, 0.88)),
+    url("../images/bg-light.jpg");
+
+  --bg-surface: #ffffff;
+
+  --bg-surface-2: #f7f8fa;
+
+  --navbar: #ffffff;
+
+  --navbar-scroll: rgba(255, 255, 255, 0.9);
+
+  --text: #1f2937;
+
+  --text-soft: #5c6470;
+
+  --card: #ffffff;
+
+  --card-border: #dcdcdc;
+
+  --button: #ffffff;
+
+  --button-hover: #111827;
+
+  --button-text: #111827;
+
+  --input: #ffffff;
+}
+
+/* ===================================
+        GLOBAL
+=================================== */
+
+html,
+body {
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
 }
 
 body {
-  padding-top: 70px; /* Space for fixed navbar */
-  min-height: 100vh; /* Keeps background locked to minimum screen fill heights */
-  margin: 0;
-  
-  /* Loads your background image with a dark vignette tint overlay for maximum text readability */
-  background: linear-gradient(rgba(10, 13, 18, 0.65), rgba(3, 4, 6, 0.85)), 
-              url('../images/bg.jpg') no-repeat center center fixed !important;
-  background-size: cover !important; /* Scale wallpaper dynamically to fill the screen */
-  background-attachment: fixed !important; /* Locks background image firmly behind content scrolls */
-  color: #f0f2f5 !important; /* Silversmith text tint to pop against the dark canvas */
+  background: var(--bg-main) no-repeat center center fixed !important;
+
+  background-size: cover !important;
+
+  color: var(--text) !important;
 }
 
-/* ==========================================================================
-   Responsive Navbar Transitional Effects (Fades on Scroll)
-   ========================================================================== */
+/* ===================================
+        NAVBAR
+=================================== */
+
 .navbar {
-  /* Establishes a smooth 0.4 second animation curve when the background class tags flip */
-  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease !important;
-  background-color: #212529 !important; /* Starts as a solid dark background color at the top */
+  background: var(--navbar) !important;
 }
 
-/* Triggers automatically via JavaScript once the user scrolls down the viewport */
 .navbar.navbar-scrolled {
-  background-color: rgba(10, 13, 18, 0.45) !important; /* Fades down to an ultra-clean semi-transparent dark tint */
-  backdrop-filter: blur(8px) !important; /* Frost overlay effect so text content flowing underneath blurs elegantly */
-  border-color: rgba(255, 255, 255, 0.05) !important; /* Softens the border strip separator accent */
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3) !important; /* Drops a deeper atmospheric shadow ridge */
+  background: var(--navbar-scroll) !important;
 }
 
-/* ==========================================================================
-   Silksong Needle Link Underline Animations (Works on All Pages)
-   ========================================================================== */
-.navbar-nav .nav-link {
-  position: relative;
-  transition: color 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-}
+/* ===================================
+        CARDS
+=================================== */
 
-/* Base style for the needle underline on hover */
-.navbar-nav .nav-link::after {
-  content: "";
-  position: absolute;
-  height: 4px; /* Thickness of the needle blade */
-  bottom: -2px;
-  left: 50%;
-  background-color: #ffffff; /* White needle blade base color */
-  width: 0;
-  transform: translateX(-50%);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Custom clip-path shaping a horizontal double-pointed Silksong Needle blade */
-  clip-path: polygon(0% 50%, 15% 0%, 85% 0%, 100% 50%, 85% 100%, 15% 100%);
-  opacity: 0;
-  box-shadow:
-    0 0 10px rgba(255, 255, 255, 0.9),
-    0 0 4px rgba(255, 255, 255, 0.4); /* High-intensity white soul-glow effect */
-}
-
-/* When hovered or active, expand the needle outward symmetrically */
-.navbar-nav .nav-link:hover::after,
-.navbar-nav .nav-link.active::after {
-  width: 85%;
-  opacity: 1;
-}
-
-/* ==========================================================================
-   Dropdown Toggle Needle Override (The Vertical Arrow Replacement)
-   ========================================================================== */
-
-/* 1. Remove Bootstrap's default standard downward arrow graphic asset */
-.navbar-nav .dropdown-toggle::after {
-  display: none !important;
-}
-
-/* 2. Add structural spacing for the vertical indicator icon next to text */
-.navbar-nav .dropdown-toggle {
-  gap: 6px;
-}
-
-/* 3. Inject a distinct vertical downward needle icon right next to dropdown links */
-.navbar-nav .dropdown-toggle::before {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  background-color: currentColor;
-  /* Traces just a sharp triangular needle tip head pointing down */
-  clip-path: polygon(0% 20%, 100% 20%, 50% 90%);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: center center;
-  order: 2; /* Forces it to sit cleanly after the text string */
-}
-
-/* 4. Smoothly rotate the sharp vertical needle upside down when clicked/expanded */
-.navbar-nav .dropdown-toggle.show::before {
-  transform: rotate(180deg);
-  color: #ffffff; /* White active tracking tint for the needle icon */
-}
-
-/* ==========================================================================
-   Hero Carousel Styles (Borders and Blurs Completely Removed)
-   ========================================================================== */
-#heroCarousel {
-  position: relative;
-  margin-bottom: 50px;
-  background-color: transparent !important;
-  backdrop-filter: none !important;
-}
-
-.carousel-item img {
-  height: 500px;
-  object-fit: cover; /* Crop images to fit */
-  filter: none !important; /* Guarantees crisp image rendering */
-  transform: translateZ(0); /* Hardware acceleration layout safety helper */
-}
-
-.carousel-caption {
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.carousel-caption h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-/* On smaller screens */
-@media (max-width: 768px) {
-  .carousel-item img {
-    height: 300px;
-  }
-
-  .carousel-caption h2 {
-    font-size: 1.5rem;
-  }
-}
-
-/* ==========================================================================
-   Feature Cards Layout Configuration
-   ========================================================================== */
 .card {
-  background-color: rgba(22, 28, 36, 0.75) !important; /* Translucent background layout */
-  border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Muted silver border lines */
-  color: #e2e8f0 !important;
-  backdrop-filter: blur(4px); /* Frost overlay container filter */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--card) !important;
+
+  border: 1px solid var(--card-border) !important;
+
+  color: var(--text) !important;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05); /* Soft white hovering shadow aura */
-}
+/* ===================================
+        CONTACT
+=================================== */
 
-.card-img-top {
-  height: 200px;
-  object-fit: cover;
-}
-
-/* Section Styles */
-section {
-  background-color: transparent !important; /* Lets your background image show through */
-}
-
-section h2 {
-  font-weight: bold;
-}
-
-/* Contact Page Styles */
-.map-container {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.map-container iframe {
-  display: block;
-}
-
-.contact-info {
-  padding: 20px;
-  background-color: rgba(22, 28, 36, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e2e8f0;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.contact-info a {
-  color: #0d6efd;
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
-}
-
-/* Contact Form Styles */
+.contact-info,
 .contact-form {
-  padding: 30px;
-  background-color: rgba(22, 28, 36, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e2e8f0;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: var(--bg-surface);
+
+  color: var(--text);
+
+  border: 1px solid var(--card-border);
 }
 
-.contact-form .form-control,
-.contact-form .form-select {
-  padding: 12px;
-  font-size: 1rem;
-  background-color: rgba(10, 13, 18, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #fff;
+/* ===================================
+        INPUTS
+=================================== */
+
+.form-control,
+.form-select {
+  background: var(--input);
+
+  color: var(--text);
+
+  border-color: var(--card-border);
 }
 
-.contact-form .form-control:focus,
-.contact-form .form-select:focus {
-  background-color: rgba(10, 13, 18, 0.9);
-  color: #fff;
-  border-color: #ffffff;
-  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.15);
+.form-control::placeholder {
+  color: var(--text-soft);
 }
 
-.contact-form .btn {
-  padding: 12px;
-  font-weight: 600;
+/* ===================================
+        DROPDOWNS
+=================================== */
+
+.dropdown-menu {
+  background: var(--bg-surface);
+
+  border-color: var(--card-border);
 }
 
-/* Make form labels slightly bold */
-.contact-form .form-label {
-  font-weight: 500;
-  margin-bottom: 5px;
+.dropdown-item {
+  color: var(--text);
 }
 
-/* Scroll Reveal Animation Styles */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  will-change: opacity, transform;
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.reveal-on-scroll.reveal-active {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ===================================
+        SEARCH
+=================================== */
 
-/* ==========================================================================
-   Inline Sidebar Navigation Links Layout
-   ========================================================================== */
-.wiki-inline-link {
-  color: rgba(240, 242, 245, 0.8) !important;
-  font-size: 0.95rem;
-  font-weight: 500;
-  padding: 2px 6px;
-  border-radius: 4px;
-  transition: all 0.2s ease-in-out;
-}
-
-.wiki-inline-link:hover {
-  color: #ffffff !important;
-  background-color: rgba(255, 255, 255, 0.08);
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
-
-/* ==========================================================================
-   Wiki Return/Database Action Button Custom Adjustments
-   ========================================================================== */
-.wiki-btn {
-  display: block;
-  width: 100%;
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  padding: 10px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  text-decoration: none;
-  border-radius: 3px;
-  transition: all 0.25s ease-in-out;
-}
-
-.wiki-btn:hover {
-  background-color: #ffffff;
-  color: #0a0d12;
-  border-color: #ffffff;
-}
-
-/* ==========================================================================
-   Home Page Top Right Search Form Utility Customization
-   ========================================================================== */
 .wiki-search-form .form-control {
-  background-color: rgba(22, 28, 36, 0.75) !important;
-  border-color: rgba(255, 255, 255, 0.15) !important;
-  color: #ffffff !important;
-  font-size: 0.9rem;
-  border-right: none;
-}
+  background: var(--input) !important;
 
-.wiki-search-form .form-control:focus {
-  border-color: #ffffff !important;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15) !important;
+  color: var(--text) !important;
 }
 
 .wiki-search-form .input-group-text {
-  border-right: none;
-  border-color: rgba(255, 255, 255, 0.15) !important;
-  color: rgba(255, 255, 255, 0.4) !important;
+  background: var(--bg-surface);
+
+  color: var(--text);
 }
 
 .wiki-search-form .btn {
-  background-color: rgba(255, 255, 255, 0.04);
-  font-size: 0.9rem;
-transition: all 0.2s ease-in-out;}.wiki-search-form .btn:hover {background-color: #ffffff;color: #0a0d12;border-color: #ffffff !important;}/* ==========================================================================Character Profile Infobox Layout Tweaks========================================================================== */.wiki-infobox-card {background-color: rgba(16, 21, 28, 0.85) !important;border: 2px solid rgba(255, 255, 255, 0.12) !important;border-radius: 4px;overflow: hidden;}.wiki-infobox-card .wiki-card-table {background-color: rgba(0, 0, 0, 0.25);border-radius: 4px;overflow: hidden;border: 1px solid rgba(255, 255, 255, 0.05);}.wiki-infobox-card .wiki-table-row {display: flex;align-items: center;border-bottom: 1px solid rgba(255, 255, 255, 0.05);}.wiki-infobox-card .wiki-table-row:last-child {border-bottom: none;}.wiki-infobox-card .wiki-label {width: 45%;font-size: 0.85rem;padding: 10px;font-weight: 600;background-color: rgba(255, 255, 255, 0.02);color: rgba(240, 242, 245, 0.7);border-right: 1px solid rgba(255, 255, 255, 0.05);}.wiki-infobox-card .wiki-value {width: 55%;font-size: 0.85rem;padding: 10px;color: #ffffff;}.wiki-card-header {background-color: rgba(255, 255, 255, 0.06);border-bottom: 2px solid rgba(255, 255, 255, 0.15);color: #ffffff;}.wiki-card-img-container {padding: 12px;background-color: rgba(0, 0, 0, 0.2);border-bottom: 1px solid rgba(255, 255, 255, 0.08);}.x-small {font-size: 0.75rem;}/* ==========================================================================Custom 404 Exception Page Icon Animations========================================================================== /.animate-pulse {animation: soulPulse 2.5s infinite ease-in-out;display: inline-block;color: #dc3545; / Bootstrap hazard red fallback */filter: drop-shadow(0 0 5px rgba(220, 53, 69, 0.4));}@keyframes soulPulse {0% {transform: scale(1);filter: drop-shadow(0 0 5px rgba(220, 53, 69, 0.4));opacity: 0.8;}50% {transform: scale(1.08);filter: drop-shadow(0 0 15px rgba(220, 53, 69, 0.8));opacity: 1;}100% {transform: scale(1);filter: drop-shadow(0 0 5px rgba(220, 53, 69, 0.4));opacity: 0.8;}}
+  background: var(--button);
+
+  color: var(--button-text);
+}
+
+/* ===================================
+        INFOBOX
+=================================== */
+
+.wiki-infobox-card {
+  background: var(--bg-surface-2) !important;
+
+  color: var(--text);
+
+  border-color: var(--card-border) !important;
+}
+
+/* ===================================
+        FOOTER
+=================================== */
+
+footer {
+  color: var(--text-soft);
+}
+
+/* ===================================
+        THEME BUTTON
+=================================== */
+
+#themeToggle {
+  width: 42px;
+
+  height: 42px;
+
+  border-radius: 50%;
+
+  transition: 0.3s;
+}
+
+#themeToggle:hover {
+  transform: rotate(180deg) scale(1.1);
+}
+
+#themeIcon {
+  font-size: 1rem;
+}
+
+/* ===================================
+        PAGE FADE
+=================================== */
+
+body {
+  opacity: 1;
+}
+
+body.page-transition {
+  opacity: 0;
+}
+
+body.page-loaded {
+  animation: fadeInPage 0.45s ease;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body.page-loaded {
+  opacity: 1;
+
+  transition:
+    opacity 0.45s ease,
+    background 0.35s ease,
+    color 0.35s ease;
+}
+/* ======================================================
+   COMPLETE THEME SUPPORT
+====================================================== */
+
+/* ---------- Navbar ---------- */
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: var(--text) !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--accent) !important;
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+
+/* ---------- Dropdown ---------- */
+
+.dropdown-menu {
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+}
+
+.dropdown-item {
+  transition: 0.25s;
+}
+
+.dropdown-item:hover {
+  color: var(--accent);
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-outline-light,
+.btn-outline-dark {
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- Search ---------- */
+
+.wiki-search-form .form-control {
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.wiki-search-form .form-control:focus {
+  border-color: var(--accent);
+
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* ---------- Forms ---------- */
+
+.form-control,
+.form-select,
+textarea {
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  border-color: var(--accent);
+
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* ---------- Contact ---------- */
+
+.contact-info,
+.contact-form {
+  backdrop-filter: blur(15px);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- Carousel ---------- */
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(12px);
+
+  padding: 1rem;
+
+  border-radius: 12px;
+}
+
+html[data-theme="light"] .carousel-caption {
+  background: rgba(255, 255, 255, 0.8);
+
+  color: #222;
+}
+
+/* ---------- Wiki Infobox ---------- */
+
+.wiki-infobox-card {
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.wiki-card-header {
+  background: rgba(255, 255, 255, 0.05);
+
+  border-bottom: 1px solid var(--card-border);
+
+  color: var(--text);
+}
+
+.wiki-card-table {
+  color: var(--text);
+}
+
+.wiki-label {
+  color: var(--text-soft);
+
+  font-weight: 600;
+}
+
+.wiki-value {
+  color: var(--text);
+}
+
+/* ---------- Tables ---------- */
+
+table {
+  color: var(--text);
+}
+
+th {
+  color: var(--text);
+}
+
+td {
+  color: var(--text);
+}
+
+/* ---------- Lists ---------- */
+
+.list-group-item {
+  background: var(--bg-surface);
+
+  color: var(--text);
+
+  border-color: var(--card-border);
+}
+
+/* ---------- Alerts ---------- */
+
+.alert {
+  backdrop-filter: blur(8px);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  background: transparent;
+
+  color: var(--text-soft);
+
+  padding: 2rem 0;
+}
+
+/* ---------- Images ---------- */
+
+img {
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.04);
+}
+
+/* ---------- Theme Button ---------- */
+
+#themeToggle {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+#themeToggle:hover {
+  transform: rotate(180deg) scale(1.1);
+}
+
+/* ---------- Smooth Theme Animation ---------- */
+
+body,
+.navbar,
+.card,
+.dropdown-menu,
+.contact-form,
+.contact-info,
+.form-control,
+.form-select,
+footer,
+.wiki-infobox-card,
+.list-group-item {
+  transition:
+    background-color 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0b5ed7;
+}
+
+/* ======================================================
+   LIGHT MODE OVERRIDES
+====================================================== */
+
+html[data-theme="light"] .navbar {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .card {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .dropdown-menu {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .contact-info,
+html[data-theme="light"] .contact-form {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+html[data-theme="light"] .wiki-infobox-card {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ======================================================
+   DARK MODE ENHANCEMENTS
+====================================================== */
+
+html[data-theme="dark"] .card:hover {
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .dropdown-menu {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .navbar.navbar-scrolled {
+  backdrop-filter: blur(14px);
+}
+
+/* ======================================================
+   UTILITIES
+====================================================== */
+
+.text-theme {
+  color: var(--text);
+}
+
+.bg-theme {
+  background: var(--bg-surface);
+}
+
+.border-theme {
+  border-color: var(--card-border);
+}
+
+.shadow-theme {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ===============================
+   Breadcrumb Navigation
+=============================== */
+
+.breadcrumb {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+
+.breadcrumb-item a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: var(--text-secondary);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--text-secondary);
+}
+
+/* ===============================
+   404 Page
+================================= */
+
+.error-title {
+  color: #ffffff;
+}
+
+.error-heading {
+  color: #ffc107;
+}
+
+.error-text {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.error-small {
+  color: rgba(255, 255, 255, 0.68);
+}

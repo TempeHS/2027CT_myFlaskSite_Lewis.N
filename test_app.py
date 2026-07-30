@@ -124,3 +124,71 @@ def test_contact_page_has_form_container(client):
     response = client.get("/contact")
     # FIXED: Looking for standard framework structural blocks that are guaranteed to render
     assert b"Contact" in response.data
+
+
+# ============ 5. DARK MODE / THEME SYSTEM TESTS ============
+
+
+def test_dark_mode_default_theme_exists(client):
+    """Test that the website loads with dark mode enabled by default."""
+    response = client.get("/")
+    assert response.status_code == 200
+    assert b'data-theme="dark"' in response.data
+
+
+def test_theme_toggle_button_exists(client):
+    """Test that the dark/light mode toggle button is included."""
+    response = client.get("/")
+    assert response.status_code == 200
+
+    assert b'id="themeToggle"' in response.data
+    assert b"Toggle Dark / Light Mode" in response.data
+
+
+def test_theme_icon_exists(client):
+    """Test that the theme icon element is present."""
+    response = client.get("/")
+    assert response.status_code == 200
+
+    assert b"themeIcon" in response.data
+    assert b"bi-moon-stars-fill" in response.data
+
+
+def test_theme_javascript_is_loaded(client):
+    """Test that the theme system JavaScript file is connected."""
+    response = client.get("/")
+    assert response.status_code == 200
+
+    assert b"theme.js" in response.data
+
+
+def test_theme_css_is_loaded(client):
+    """Test that the main stylesheet containing theme variables loads."""
+    response = client.get("/")
+    assert response.status_code == 200
+
+    assert b"style.css" in response.data
+
+
+def test_all_pages_have_theme_system(client):
+    """Test that every major page keeps the theme system."""
+    pages = [
+        "/",
+        "/game-info",
+        "/quests",
+        "/dlc",
+        "/contact",
+        "/quests/skills",
+        "/quests/items",
+        "/quests/rewards",
+        "/info/pharloom",
+        "/info/threat-levels",
+        "/info/primary-tools",
+    ]
+
+    for page in pages:
+        response = client.get(page)
+
+        assert response.status_code == 200
+        assert b"themeToggle" in response.data
+        assert b"theme.js" in response.data

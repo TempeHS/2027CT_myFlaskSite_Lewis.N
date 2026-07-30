@@ -1,29 +1,39 @@
-{% extends 'base.html' %} {% block title %}Quest Rewards - Database - The Silk
-Web{% endblock %} {% block content %}
-<div class="container my-5 text-center">
-  <!-- Back Navigation Button -->
-  <div class="text-start mb-4">
-    <a
-      href="{{ url_for('quests') }}"
-      class="wiki-btn d-inline-flex align-items-center gap-2"
-      style="width: auto; padding: 6px 16px"
-    >
-      <i class="bi bi-chevron-left" aria-hidden="true"></i> Back to Quests
-      Database
-    </a>
-  </div>
+{% extends 'base.html' %} {% block title %} Quest Rewards - Database - The Silk
+Web {% endblock %} {% block content %}
 
-  <h1 class="text-white border-bottom border-secondary pb-2 mb-4">
-    Extra Rewards Ledger
-  </h1>
-  <p class="lead">
-    Mollis pretium lorem primis iaculis cubilia scelerisque platea. Elementum
-    interdum dictum rhoncus himenaeos aptent cubilia ac. Dignissim torquent
-    proin mus per suspendisse varius diam platea.
-  </p>
-  <p class="text-muted">
-    Database entry tracking currency distribution yields, shell strings
-    balances, badge crest modifiers, and secret completion parameters.
-  </p>
+<div class="container my-5">
+  <!-- Breadcrumb Navigation -->
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('home') }}">Home</a>
+      </li>
+
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('quests') }}">Quests</a>
+      </li>
+
+      <li class="breadcrumb-item active" aria-current="page">Quest Rewards</li>
+    </ol>
+  </nav>
+
+  <div class="text-center">
+    <h1 class="text-white border-bottom border-secondary pb-2 mb-4">
+      Extra Rewards Ledger
+    </h1>
+
+    <p class="lead">
+      Mollis pretium lorem primis iaculis cubilia scelerisque platea. Elementum
+      interdum dictum rhoncus himenaeos aptent cubilia ac. Dignissim torquent
+      proin mus per suspendisse varius diam platea.
+    </p>
+
+    <p class="text-light opacity-75">
+      Database entry tracking Shell rewards, collectible crests, rare crafting
+      materials, completion bonuses, and hidden rewards earned throughout quests
+      in the Kingdom of Pharloom.
+    </p>
+  </div>
 </div>
+
 {% endblock %}

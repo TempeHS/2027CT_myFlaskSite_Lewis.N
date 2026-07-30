@@ -1,24 +1,34 @@
-{% extends 'base.html' %} {% block title %}Maps & Locations - Database{%
-endblock %} {% block content %}
-<div class="container my-5 text-center">
-  <!-- Back Navigation Button -->
-  <div class="text-start mb-4">
-    <a
-      href="{{ url_for('game_info') }}"
-      class="wiki-btn d-inline-flex align-items-center gap-2"
-      style="width: auto; padding: 6px 16px"
-    >
-      <i class="bi bi-chevron-left" aria-hidden="true"></i> Back to Info
-      Database
-    </a>
-  </div>
+{% extends 'base.html' %} {% block title %} Maps & Locations - Database - The
+Silk Web {% endblock %} {% block content %}
 
-  <h1 class="text-white border-bottom border-secondary pb-2 mb-4">
-    World Map & Locations
-  </h1>
-  <p class="lead">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Structural layout
-    mapping cavern boundaries, transition coordinates, and spillways.
-  </p>
+<div class="container my-5">
+  <!-- Breadcrumb Navigation -->
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('home') }}">Home</a>
+      </li>
+
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('game_info') }}">Main Info</a>
+      </li>
+
+      <li class="breadcrumb-item active" aria-current="page">
+        Maps & Locations
+      </li>
+    </ol>
+  </nav>
+
+  <div class="text-center">
+    <h1 class="text-white border-bottom border-secondary pb-2 mb-4">
+      World Map & Locations
+    </h1>
+
+    <p class="lead">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Structural layout
+      mapping cavern boundaries, transition coordinates, and spillways.
+    </p>
+  </div>
 </div>
+
 {% endblock %}

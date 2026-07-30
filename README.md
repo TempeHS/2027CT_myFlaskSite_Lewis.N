@@ -1,93 +1,113 @@
-# The Silk Web - Spoilers-Free Silksong Database
+# Website Name
 
-A simple, fast, and secure Python Flask web application designed for VS Code in GitHub Codespaces using a dark atmospheric *Hollow Knight: Silksong* wiki aesthetic.
+| Field                          | Detail                                                  |
+| ------------------------------ | ------------------------------------------------------- |
+| **Website Title**              | Silk Web                                                |
+| **Student Name(s)**            | Lewis N                                                 |
+| **Class / Course**             | 9CT1                                                    |
+| **Repository**                 | https://github.com/TempeHS/2027CT_myFlaskSite_Lewis.N   |
+| **Live Site / Codespaces URL** | https://literate-broccoli-5g6r57v6wppgc7jj5.github.dev/ |
+| **Date**                       | 30th July 2026                                          |
 
-## Description
+> Your website is the main piece of work. This README is short on purpose — it
+> points a reader to your **2-minute walkthrough** and gives an honest
+> **evaluation of what you delivered**.
 
-**The Silk Web** serves as a structured, multi-page web archive that delivers gameplay records and progression hints with zero to minimal narrative spoilers. Built using the **Python Flask** micro-framework and styled with **Bootstrap 5**, this repository houses comprehensive database modules tracking core campaign elements, side objectives, and expansion content. The user interface features custom-engineered interactive styles, such as responsive scroll-fading navigation elements, white needle-tip hover indicators, wiki-style infobox tablets, and a dynamic contextual search engine designed to intercept user entries and route them cleanly across the kingdom parameters.
+---
 
-## Getting Started
+## 1. Overview
 
-### Dependencies
+**Purpose:** <!-- One or two sentences: what the site is and why it exists (from your Statement of Intent). -->
+Silk Web is a fan-made information website for Hollow Knight: Silksong. It provides players with information about the game world, quests, bosses, maps, and future downloadable content through a modern, easy-to-navigate website.
+**Target audience:** <!-- One sentence: who the site is for (from your personas). -->
+The website is designed for Hollow Knight: Silksong players, especially new and returning players looking for guides, game information, and quest assistance without needing to search multiple websites.
+**Technology stack:** Python Flask · Jinja2 templates · Bootstrap (CDN) · custom CSS · pytest
 
-Before launching the web system, verify your workspace environment satisfies the following baseline prerequisites:
-* **Operating System:** Linux (Ubuntu/Debian environment inside GitHub Codespaces), Windows 10/11, or macOS.
-* **Runtime Environment:** Python 3.8 or higher.
-* **Core Framework:** Flask 2.0+ (and its corresponding template engine dependency, Jinja2).
-* **Testing Engine:** Pytest 7.0+ for running the automated unit test matrix.
+---
 
-### Installing
+## 2. Walkthrough Video (2 minutes)
 
-1. Open your terminal shell layout at the bottom of VS Code.
-2. Ensure you have activated your local Python virtual environment container (`venv` or `env` folder). If not initialized, execute:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-3. Upgrade your package manager installer tool and deploy the core micro-framework dependencies:
-   ```bash
-   pip install --upgrade pip
-   pip install flask pytest
-   ```
-4. Place your custom wallpaper image file inside your project structure as `static/images/bg.jpg`. Ensure the name is completely lowercase to match the CSS routing directives.
+This is the most important part of your documentation — it shows your website running.
 
-### Executing program
+<!--
+  Embed a ~2 minute walkthrough. Replace VIDEO_ID with your YouTube video ID:
+  [![Website Walkthrough](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
 
-To launch the server instance local loop and test out your features:
+  OR link a screen recording stored in the repository:
+  [Watch the Walkthrough](./docs/walkthrough.mp4)
+-->
 
-1. Start up your backend python application server file:
-   ```bash
-   python app.py
-   ```
-   *Alternatively, use the native Flask execution utility:*
-   ```bash
-   flask run --host=0.0.0.0 --port=5000
-   ```
-2. Click the open browser pop-up link exposed by your GitHub Codespace environment to access your active rendering view dashboard.
-3. To trigger the comprehensive automated quality assurance test runner matrix, run:
-   ```bash
-   pytest
-   ```
+| Field            | Detail |
+| ---------------- | ------ |
+| **Link / Embed** |        |
+| **Duration**     |        |
 
-## Help
+**Your walkthrough should show:**
 
-### Common Issues & Troubleshooting
+- A tour of each page (Home and Contact)
+- Your key Bootstrap components working (navbar, carousel, cards, map, form)
+- The layout responding when the window is resized (navbar collapsing to a hamburger)
 
-* **Problem:** `NameError: name 'app' is not defined` inside `app.py`.
-  * *Solution:* Python scripts interpret statements from top to bottom. Ensure `app = Flask(__name__)` is initialized at the absolute top of your script block before any `@app.route` wrapper modules try to tap into it.
-* **Problem:** Changes to the background image layout boundaries or navbar colors are not displaying.
-  * *Solution:* Browsers hold onto layout style sheets heavily. Force an instantaneous cache rewrite by entering **Ctrl + F5** (Windows) or **Cmd + Shift + R** (Mac) inside your web view browser window.
-* **Problem:** Clicking a navigation dropdown line returns a `TemplateNotFound` failure crash screen.
-  * *Solution:* Check your folder layout naming. If your code renders `"maps.html"` but your file is saved as `"Maps.html"` or `"threat_levels.html"`, Flask will crash due to character casing discrepancies.
+---
 
-To review available background command help summaries and framework details, invoke:
-```bash
-flask --help
-```
+## 3. Evaluation — Did You Deliver Your Statement of Intent?
 
-## Authors
+This is the most important written part of your documentation. Evaluate the
+website you **delivered** against the **Statement of Intent** you wrote during
+planning. Be honest and use evidence — point to a page, a feature or a test.
 
-* **Lewis N.** - Lead Full-Stack Application Architect - [@MrSushi2](https://github.com)
-* **TempeHS Framework Template** - Project Blueprint Foundation and Contextual Parameters.
+### 3.1 Your Statement of Intent
 
-## Version History
+The purpose of Silk Web was to create a professional, responsive fan website for Hollow Knight: Silksong that allows players to quickly access information about Pharloom, bosses, quests, maps, and future DLC content. The website aimed to provide an attractive interface, simple navigation, responsive design, and useful search functionality while remaining easy for both new and experienced players to use.
 
-* **0.2**
-  * Integrated multi-level drop-down navbar frameworks.
-  * Added white glowing Silksong needle link hovers and vertical indicator triangles.
-  * Added smart search logic mapping with custom suggestion error templates.
-  * Added universal fixed background min-height stabilization overrides.
-  * Configured dynamic global custom `404 Page Not Found` pulse exception modules.
-  * Extended automated Pytest integration matrices to match active endpoints.
-* **0.1**
-  * Initial Release.
-  * Established baseline Flask blueprint mappings and standard Bootstrap container card carousels.
+<!-- Paste the Statement of Intent you wrote during planning so the reader can judge your site against it. -->
 
-## License
+### 3.2 What You Delivered
 
-This project is licensed under the MIT License - see the `LICENSE.md` file for details.
+| Page    | Route      | What it delivers |
+| ------- | ---------- | ---------------- |
+| Home    | `/`        |                  |
+| Contact | `/contact` |                  |
 
-## Acknowledgments
+### 3.3 Evaluation Against Your Intent (2–3 paragraphs)
 
-* **Team Cherry** - For crafting the gorgeous art direction and environmental atmosphere of *Hollow Knight: Silksong*.
-* **Hollow Knight Wiki Contributors** - For inspiring the structural layout guidelines utilized in our infobox parameters grids.
+> Take each aim in your Statement of Intent and evaluate **how well the
+> delivered site meets it**. Where did you meet your intent? Where did you fall
+> short, and why? Support every judgement with evidence from your site.
+
+<!-- Write 2–3 paragraphs. -->
+
+The finished website successfully achieves most of the goals outlined in my Statement of Intent. It provides visitors with organised information about Hollow Knight: Silksong using multiple linked pages, dropdown navigation, and a consistent visual design. The use of Flask templates and reusable navigation means every page shares the same layout, making the website easy to navigate. The responsive Bootstrap navigation bar works on both desktop and mobile devices, while the custom CSS creates a unique appearance suited to the game's atmosphere.
+
+Additional features improved the overall user experience beyond the original plan. These include a dark and light mode theme system that remembers the user's preference using local storage, a custom search feature that redirects users to relevant pages based on keywords, and automated pytest tests to verify routes and major website features. These additions improve usability and demonstrate the functionality of the website.
+
+Although the website meets most of its intended goals, there are still areas that could be expanded. More detailed game information, additional boss guides, interactive maps, and user accounts could be added in future versions. Because Hollow Knight: Silksong continues to receive updates, the website would also benefit from regular content updates to keep information current.
+
+### 3.4 Overall Effectiveness (1–2 paragraphs)
+
+> Step back from the detail. Overall, **how effective** is the website at
+> achieving its purpose for its target audience? Weigh what works against what
+> falls short, and state what you would improve to better meet your intent.
+
+<!-- Write 1–2 paragraphs. -->
+
+Overall, Silk Web is an effective fan website that achieves its purpose of providing players with an organised source of Hollow Knight: Silksong information. The responsive layout, clean navigation, dropdown menus, search function, and dark/light theme create a professional user experience that is easy to use across different devices.
+
+## If I continued developing the project, I would add a database for user accounts, favourites, and saved progress, improve the search system with more advanced filtering, and include more detailed guides with interactive maps and images. These improvements would make the website even more useful for players while further meeting the goals of my original Statement of Intent.
+
+## 4. Acknowledgements
+
+> List anything you did not make yourself — tutorials, images, fonts, icons and
+> libraries. Using content without acknowledgement may constitute academic
+> misconduct.
+
+| What you used           | Source / Creator | Licence   | What you used it for             |
+| ----------------------- | ---------------- | --------- | -------------------------------- |
+| Bootstrap               | Bootstrap team   | MIT       | Layout and components            |
+| Flask                   | Pallets Projects | BSD       | Web server and routing           |
+| Bootstrap Icons         | Bootstrap team   | MIT       | Navigation and interface icons   |
+| Hollow Knight: Silksong | Team Cherry      | Copyright | Game information and inspiration |
+
+---
+
+> **Student Declaration:** All work submitted is my own except where explicitly acknowledged above.
