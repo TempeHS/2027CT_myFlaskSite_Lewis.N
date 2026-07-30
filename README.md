@@ -64,8 +64,9 @@ The purpose of Silk Web was to create a professional, responsive fan website for
 
 ### 3.2 What You Delivered
 
-| Page / Feature | Route | What it delivers |
-| Home | `/` | Landing page featuring a Bootstrap carousel, parallax scrolling, welcome section, and feature cards linking to key areas of the website. |
+| Page / Feature            | Route | What it delivers |
+|---------------------------|---------------|------------------------------------------------------------------|
+| Home                      | `/`          | Landing page featuring a Bootstrap carousel, parallax scrolling, welcome section, and feature cards linking to key areas of the website. |
 | Pharloom Archive Overview | `/game-info` | Provides an overview of Hollow Knight: Silksong and introduces the world of Pharloom. |
 | Hornet Specifications | `/info/pharloom` | Contains information about Hornet, including her abilities and role in the game. |
 | Maps & Locations | `/info/threat-levels` | Displays important locations and maps to help players explore Pharloom. |
