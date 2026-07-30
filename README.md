@@ -62,32 +62,45 @@ The purpose of Silk Web was to create a professional, responsive fan website for
 
 <!-- Paste the Statement of Intent you wrote during planning so the reader can judge your site against it. -->
 
-### 3.2 What You Delivered
+## 3.2 What You Delivered
 
-| Page / Feature            | Route | What it delivers |
-|---------------------------|---------------|------------------------------------------------------------------|
-| Home                      | `/`          | Landing page featuring a Bootstrap carousel, parallax scrolling, welcome section, and feature cards linking to key areas of the website. |
-| Pharloom Archive Overview | `/game-info` | Provides an overview of Hollow Knight: Silksong and introduces the world of Pharloom. |
-| Hornet Specifications | `/info/pharloom` | Contains information about Hornet, including her abilities and role in the game. |
-| Maps & Locations | `/info/threat-levels` | Displays important locations and maps to help players explore Pharloom. |
-| Bosses & Enemies | `/info/primary-tools` | Provides information about bosses and enemies throughout the game. |
-| Silk & Bone Tasks | `/quests` | Main quests page providing an overview of available quest content. |
-| Quest Skills | `/quests/skills` | Describes skills and abilities gained during quests. |
-| Quest Items | `/quests/items` | Lists important quest items and explains their uses. |
-| Extra Rewards | `/quests/rewards` | Shows optional quest rewards and collectibles. |
-| Future DLC Information | `/dlc` | Provides information about planned or future downloadable content. |
-| Credits | `/credits` | Acknowledges Team Cherry, third-party resources, and project contributors. |
-| Contact | `/contact` | Contact page allowing users to submit feedback or enquiries. |
-| Custom 404 Page | Invalid routes | Displays a custom Hollow Knight themed error page when users visit a page that does not exist. |
-| Responsive Navigation | Global | Bootstrap navigation bar with dropdown menus that automatically collapse into a hamburger menu on tablets and mobile devices. |
-| Dark & Light Mode | Global | Toggle button allows users to switch between light and dark themes, with preferences saved using Local Storage. |
-| Smart Search | `/search` | Keyword-based search redirects users to the most relevant page or displays suggested pages when no exact match is found. |
-| Responsive Design | Global | Website layout automatically adapts to desktop, tablet, and mobile screen sizes using Bootstrap's responsive grid system. |
-| Parallax Scrolling | Global | Hero images move at a different speed while scrolling to create a modern visual effect. |
-| Reusable Flask Templates | Global | Uses Jinja templates and partials so the navigation bar, footer, and overall layout remain consistent across every page. |
-| Theme Persistence | Global | The selected theme is remembered between visits using browser Local Storage. |
-| Bootstrap Components | Global | Uses a responsive navbar, dropdown menus, carousel, cards, forms, buttons, icons, and grid layout throughout the website. |
-| Automated Testing | Project | Includes pytest tests to verify website routes and ensure important pages load correctly. |
+| Page / Feature | Route | What it delivers |
+|----------------|-------|------------------|
+| Home | `/` | Landing page featuring a Bootstrap hero carousel, parallax scrolling, welcome section, interactive feature cards, website overview, latest updates, and quick navigation to major sections of the site. |
+| Pharloom Archive Overview | `/game-info` | Introduces *Hollow Knight: Silksong*, the kingdom of Pharloom, and provides a spoiler-light overview of the game's setting. |
+| Hornet Specifications | `/hornet` | Presents information about Hornet, including her background, abilities, combat style, and equipment. |
+| Maps & Locations | `/threat-levels` | Displays important regions of Pharloom and provides guidance to help players explore the game world. |
+| Bosses & Enemies | `/primary-tools` | Provides spoiler-light information about enemies, bosses, and combat encounters found throughout the game. |
+| Silk & Bone Tasks Overview | `/quests` | Introduces the quest system and explains the different quest categories available within the website. |
+| Quest Skills | `/quest-skills` | Explains skills and abilities unlocked through quest progression and their gameplay uses. |
+| Quest Items | `/quest-items` | Lists important quest items, their purposes, and how they contribute to progression. |
+| Extra Rewards | `/quest-rewards` | Describes optional rewards, collectibles, and bonus content earned from completing quests. |
+| Future DLC Information | `/dlc` | Provides information about potential future downloadable content and planned expansions. |
+| Credits | `/credits` | Acknowledges Team Cherry, image sources, third-party resources, Bootstrap, Flask, and other project credits. |
+| Contact | `/contact` | Provides a contact form allowing visitors to send feedback, questions, or suggestions. |
+| Custom 404 Page | Invalid routes | Displays a custom Hollow Knight-themed error page that guides users back to the website when a page cannot be found. |
+| Responsive Navigation | Global | Responsive Bootstrap navigation bar with dropdown menus, active page highlighting, hover effects, and a collapsible mobile hamburger menu. |
+| Animated Navbar Logo | Global | Animated website logo featuring glow effects, hover animations, and a silk-thread inspired underline. |
+| Dark & Light Theme | Global | Allows visitors to switch between dark and light themes using a dedicated theme toggle button. |
+| Theme Persistence | Global | Saves the selected theme using Local Storage and automatically detects the user's preferred colour scheme on their first visit. |
+| Smart Search | `/search` | Allows users to search the website using keywords and redirects them to the most relevant page. |
+| Live Search Suggestions | `/api/search` | Displays live search suggestions while users type to improve navigation speed and usability. |
+| Back To Top Button | Global | Floating button appears after scrolling and smoothly returns users to the top of the page. |
+| Page Loading Animation | Global | Displays a branded loading screen with an animated spinner while pages load. |
+| Page Transition Animation | Global | Smooth fade transition effect between internal pages for a more polished browsing experience. |
+| Parallax Scrolling | Global | Selected banners, hero images, and content sections move at different speeds while scrolling to create visual depth. |
+| Interactive Feature Cards | Home | Feature cards include hover animations, image zoom effects, elevation animations, and clickable navigation links. |
+| Responsive Hero Carousel | Home | Bootstrap carousel featuring three rotating hero images with captions, indicators, and navigation controls. |
+| Custom Scrollbar | Global | Themed scrollbar styled to match the website with separate light and dark mode appearances. |
+| Responsive Design | Global | Fully responsive layouts built using Bootstrap's grid system to support desktop, tablet, and mobile devices. |
+| Reusable Flask Templates | Global | Uses Jinja template inheritance and reusable partials to maintain consistent layouts, navigation, and footers across all pages. |
+| Bootstrap Components | Global | Implements Bootstrap components including navigation bars, dropdown menus, cards, forms, buttons, carousel, icons, and responsive grids. |
+| Enhanced Footer | Global | Custom footer containing navigation links, project information, framework acknowledgements, and copyright details. |
+| Automated Testing | Project | Includes pytest tests to verify website routes and ensure key pages load successfully. |
+| Theme System | Global | Complete JavaScript theme management system providing instant theme loading, smooth transitions, keyboard shortcut support, and persistent user preferences. |
+| Navbar Scroll Effects | Global | Navbar automatically changes appearance while scrolling with blur effects and dynamic styling. |
+| Mobile Optimisation | Global | Navigation, search bar, theme toggle, feature cards, and page layouts automatically adapt to smaller screen sizes for improved usability. |
+```
 
 ### 3.3 Evaluation Against Your Intent (2–3 paragraphs)
 
