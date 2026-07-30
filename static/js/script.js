@@ -146,3 +146,19 @@ if (!window.silkWebLoaded) {
     });
   }
 }
+
+// =====================================
+// PAGE LOADING ANIMATION
+// =====================================
+
+const pageLoader = document.getElementById("pageLoader");
+
+window.addEventListener("load", () => {
+  if (pageLoader) {
+    pageLoader.classList.add("hide");
+
+    setTimeout(() => {
+      pageLoader.remove();
+    }, 500);
+  }
+});
