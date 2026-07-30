@@ -44,6 +44,8 @@ This is the most important part of your documentation — it shows your website 
 | Credits |  <img width="800" height="470" alt="Animation3" src="https://github.com/user-attachments/assets/ca6a62d6-fc94-4274-bbb3-54c2990107ee" /> This video displays the Credits page, showing the resources, references, and external materials used during the development of Silk Web.  |
 | Mobile Homepage |  <img width="600" height="878" alt="Animation4" src="https://github.com/user-attachments/assets/f066953a-28ae-4350-b2d9-3615f088c148" />  This video demonstrates Silk Web’s responsive design by resizing the browser window and showing how the layout adapts. It highlights the mobile navbar hamburger menu, stacked content, and adjusted page elements for smaller screens.   |
 | Extra Features |    <img width="601" height="354" alt="Animation5" src="https://github.com/user-attachments/assets/2d59572f-1b3d-43fe-a93b-a85a76b42cc6" />  This video highlights additional website features, including animations, hover effects, theme switching, interactive cards, and other design improvements that enhance the overall user experience. |
+| Contact Page | <img width="799" height="471" alt="Animation6" src="https://github.com/user-attachments/assets/690ff0fb-7872-4055-ab91-ba1ffbc0bc04" />  This video shows the Contact page, showing the map, informatation for communication, FAQ and the layout. |
+
 
 **Your walkthrough should show:**
 
