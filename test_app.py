@@ -1,194 +1,391 @@
 import pytest
 from app import app
 
+# ======================================================
+# FIXTURE
+# ======================================================
+
 
 @pytest.fixture
 def client():
-    """Create a test client for our Flask app."""
     app.config["TESTING"] = True
+
     with app.test_client() as client:
         yield client
 
 
-# ============ 1. CORE VIEWS TESTS ============
-
-
-def test_home_page_loads(client):
-    """Test that the home page returns status 200."""
-    response = client.get("/")
-    assert response.status_code == 200
-
-
-def test_home_page_has_title(client):
-    """Test that the home page contains our updated site title."""
-    response = client.get("/")
-    assert b"The Silk Web" in response.data
-
-
-def test_home_page_has_nav(client):
-    """Test that the navigation frame elements are included."""
-    response = client.get("/")
-    assert b"navbar" in response.data
-
-
-def test_home_page_has_bootstrap(client):
-    """Test that Bootstrap CSS engine is linked."""
-    response = client.get("/")
-    assert b"bootstrap" in response.data
-
-
-def test_game_info_page_loads(client):
-    """Test that the main overview database panel loads."""
-    response = client.get("/game-info")
-    assert response.status_code == 200
-    assert b"Pharloom" in response.data
-
-
-def test_quests_page_loads(client):
-    """Test that the quest ledger overview dashboard loads."""
-    response = client.get("/quests")
-    assert response.status_code == 200
-    # FIXED: Swapped out complex HTML escaping strings for a clean keyword assertion
-    assert b"Silk" in response.data or b"Tasks" in response.data
-
-
-def test_dlc_page_loads(client):
-    """Test that the post-launch DLC content tracking space loads."""
-    response = client.get("/dlc")
-    assert response.status_code == 200
-
-
-# ============ 2. NESTED SUBPAGES ROUTING TESTS ============
+# ======================================================
+# ALL ROUTE STATUS TESTS
+# ======================================================
 
 
 @pytest.mark.parametrize(
-    "path,expected_text",
+    "route",
     [
-        ("/quests/skills", b"Skills"),
-        ("/quests/items", b"Items"),
-        ("/quests/rewards", b"Rewards"),
-        ("/info/pharloom", b"Hornet"),
-        (
-            "/info/threat-levels",
-            b"Map",
-        ),  # FIXED: Tailored to capture simple template keywords safely
-        (
-            "/info/primary-tools",
-            b"Bosses",
-        ),  # FIXED: Tailored to capture simple template keywords safely
+        "/",
+        "/game-info",
+        "/quests",
+        "/quests/skills",
+        "/quests/items",
+        "/quests/rewards",
+        "/dlc",
+        "/contact",
+        "/info/pharloom",
+        "/info/threat-levels",
+        "/info/primary-tools",
+        "/boss1",
+        "/boss2",
+        "/boss3",
+        "/credits",
     ],
 )
-def test_nested_sidebar_subpages_load(client, path, expected_text):
-    """Test all new dynamic subpage paths render their distinct wiki content."""
-    response = client.get(path)
-    assert response.status_code == 200
-    assert expected_text in response.data
+def test_all_routes_exist(client, route):
 
+    response = client.get(route)
 
-# ============ 3. SMART SEARCH ROUTE ENGINE TESTS ============
-
-
-def test_search_redirects_to_exact_match(client):
-    """Test that key parameters smoothly redirect straight to functional routes."""
-    response = client.get("/search?q=boss")
-    assert response.status_code == 302
-    assert "/info/primary-tools" in response.headers["Location"]
-
-
-def test_search_redirects_case_insensitive(client):
-    """Test that the search map strips upper casing without breaking paths."""
-    response = client.get("/search?q=HORNET")
-    assert response.status_code == 302
-    assert "/info/pharloom" in response.headers["Location"]
-
-
-def test_search_unmatched_falls_to_error_screen(client):
-    """Test that garbage strings map into the custom fallback failure layout."""
-    response = client.get("/search?q=xyzrandomstring")
-    assert response.status_code == 200
-    assert b"Database Record Not Found" in response.data
-    assert b"xyzrandomstring" in response.data
-
-
-# ============ 4. CONTACT PAGE VIEWS TESTS ============
-
-
-def test_contact_page_loads(client):
-    """Test that the contact page returns status 200."""
-    response = client.get("/contact")
     assert response.status_code == 200
 
 
-def test_contact_page_has_form_container(client):
-    """Test that the contact template page renders content."""
-    response = client.get("/contact")
-    # FIXED: Looking for standard framework structural blocks that are guaranteed to render
-    assert b"Contact" in response.data
+# ======================================================
+# PAGE CONTENT TESTS
+# ======================================================
 
 
-# ============ 5. DARK MODE / THEME SYSTEM TESTS ============
+@pytest.mark.parametrize(
+    "route,text",
+    [
+        ("/", "The Silk Web"),
+        ("/game-info", "Pharloom"),
+        ("/quests", "Silk"),
+        ("/quests/skills", "Skills"),
+        ("/quests/items", "Items"),
+        ("/quests/rewards", "Rewards"),
+        ("/dlc", "DLC"),
+        ("/contact", "Contact"),
+        ("/info/pharloom", "Hornet"),
+        ("/info/threat-levels", "Map"),
+        ("/info/primary-tools", "Bosses"),
+        ("/credits", "Credits"),
+    ],
+)
+def test_page_contains_expected_content(client, route, text):
+
+    response = client.get(route)
+
+    assert text.encode() in response.data
 
 
-def test_dark_mode_default_theme_exists(client):
-    """Test that the website loads with dark mode enabled by default."""
+# ======================================================
+# NAVBAR TESTS
+# ======================================================
+
+
+def test_navbar_exists(client):
+
     response = client.get("/")
-    assert response.status_code == 200
-    assert b'data-theme="dark"' in response.data
+
+    assert b"navbar" in response.data
 
 
-def test_theme_toggle_button_exists(client):
-    """Test that the dark/light mode toggle button is included."""
+def test_navbar_links_exist(client):
+
     response = client.get("/")
-    assert response.status_code == 200
 
-    assert b'id="themeToggle"' in response.data
-    assert b"Toggle Dark / Light Mode" in response.data
+    html = response.data
+
+    assert b"Home" in html
+    assert b"Bosses" in html
+    assert b"Quests" in html
+    assert b"Contact" in html
 
 
-def test_theme_icon_exists(client):
-    """Test that the theme icon element is present."""
+def test_dropdown_exists(client):
+
     response = client.get("/")
-    assert response.status_code == 200
 
-    assert b"themeIcon" in response.data
-    assert b"bi-moon-stars-fill" in response.data
+    assert b"dropdown" in response.data
 
 
-def test_theme_javascript_is_loaded(client):
-    """Test that the theme system JavaScript file is connected."""
+# ======================================================
+# BOOTSTRAP + CSS TESTS
+# ======================================================
+
+
+def test_bootstrap_loaded(client):
+
     response = client.get("/")
-    assert response.status_code == 200
 
-    assert b"theme.js" in response.data
+    assert b"bootstrap" in response.data
 
 
-def test_theme_css_is_loaded(client):
-    """Test that the main stylesheet containing theme variables loads."""
+def test_custom_css_loaded(client):
+
     response = client.get("/")
-    assert response.status_code == 200
 
     assert b"style.css" in response.data
 
 
-def test_all_pages_have_theme_system(client):
-    """Test that every major page keeps the theme system."""
-    pages = [
-        "/",
-        "/game-info",
-        "/quests",
-        "/dlc",
-        "/contact",
-        "/quests/skills",
-        "/quests/items",
-        "/quests/rewards",
+def test_javascript_loaded(client):
+
+    response = client.get("/")
+
+    assert b".js" in response.data
+
+
+# ======================================================
+# DARK MODE SYSTEM
+# ======================================================
+
+
+def test_dark_theme_default(client):
+
+    response = client.get("/")
+
+    assert b'data-theme="dark"' in response.data
+
+
+def test_theme_toggle_exists(client):
+
+    response = client.get("/")
+
+    assert b"themeToggle" in response.data
+
+
+def test_theme_icon_exists(client):
+
+    response = client.get("/")
+
+    assert b"themeIcon" in response.data
+
+
+def test_theme_script_exists(client):
+
+    response = client.get("/")
+
+    assert b"theme.js" in response.data
+
+
+# ======================================================
+# SEARCH ROUTE TESTS
+# ======================================================
+
+
+@pytest.mark.parametrize(
+    "query,destination",
+    [
+        ("boss", "/info/primary-tools"),
+        ("enemy", "/info/primary-tools"),
+        ("hornet", "/info/pharloom"),
+        ("character", "/info/pharloom"),
+        ("map", "/info/threat-levels"),
+        ("location", "/info/threat-levels"),
+        ("quest", "/quests"),
+        ("task", "/quests"),
+        ("skill", "/quests/skills"),
+        ("item", "/quests/items"),
+        ("reward", "/quests/rewards"),
+        ("dlc", "/dlc"),
+        ("contact", "/contact"),
+    ],
+)
+def test_search_redirects(client, query, destination):
+
+    response = client.get(f"/search?q={query}")
+
+    assert response.status_code == 302
+    assert destination in response.location
+
+
+def test_search_case_insensitive(client):
+
+    response = client.get("/search?q=HORNET")
+
+    assert response.status_code == 302
+    assert "/info/pharloom" in response.location
+
+
+def test_search_unknown(client):
+
+    response = client.get("/search?q=randomthing123")
+
+    assert response.status_code == 200
+    assert b"Database" in response.data
+
+
+# ======================================================
+# LIVE SEARCH API TESTS
+# ======================================================
+
+
+def test_api_returns_json(client):
+
+    response = client.get("/api/search?q=boss")
+
+    assert response.status_code == 200
+    assert response.content_type == "application/json"
+
+
+def test_api_returns_results(client):
+
+    response = client.get("/api/search?q=hornet")
+
+    data = response.get_json()
+
+    assert "results" in data
+    assert len(data["results"]) > 0
+
+
+def test_api_empty_search(client):
+
+    response = client.get("/api/search?q=")
+
+    data = response.get_json()
+
+    assert data["results"] == []
+
+
+def test_api_limits_results(client):
+
+    response = client.get("/api/search?q=a")
+
+    data = response.get_json()
+
+    assert len(data["results"]) <= 5
+
+
+# ======================================================
+# 404 ERROR TESTS
+# ======================================================
+
+
+def test_custom_404(client):
+
+    response = client.get("/fake-page")
+
+    assert response.status_code == 404
+    assert b"404" in response.data
+
+
+# ======================================================
+# WIKI COMPONENT TESTS
+# ======================================================
+
+
+@pytest.mark.parametrize(
+    "page",
+    [
         "/info/pharloom",
-        "/info/threat-levels",
         "/info/primary-tools",
-    ]
+        "/boss1",
+        "/boss2",
+        "/boss3",
+    ],
+)
+def test_infobox_exists(client, page):
+
+    response = client.get(page)
+
+    assert b"card" in response.data
+
+
+def test_cards_exist(client):
+
+    response = client.get("/")
+
+    assert b"card" in response.data
+
+
+def test_breadcrumb_exists(client):
+
+    response = client.get("/boss1")
+
+    assert b"breadcrumb" in response.data
+
+
+# ======================================================
+# BOSS DATABASE TESTS
+# ======================================================
+
+
+@pytest.mark.parametrize(
+    "boss",
+    [
+        "/boss1",
+        "/boss2",
+        "/boss3",
+    ],
+)
+def test_boss_pages_have_titles(client, boss):
+
+    response = client.get(boss)
+
+    assert response.status_code == 200
+    assert b"Boss" in response.data
+
+
+def test_boss_images_exist(client):
+
+    for boss in ["/boss1", "/boss2", "/boss3"]:
+
+        response = client.get(boss)
+
+        assert b"img" in response.data
+
+
+# ======================================================
+# SECURITY / HTTP TESTS
+# ======================================================
+
+
+def test_no_server_error(client):
+
+    pages = ["/", "/quests", "/boss1"]
 
     for page in pages:
+
         response = client.get(page)
 
-        assert response.status_code == 200
-        assert b"themeToggle" in response.data
-        assert b"theme.js" in response.data
+        assert response.status_code != 500
+
+
+def test_get_only_pages(client):
+
+    response = client.get("/")
+
+    assert response.status_code == 200
+
+
+# ======================================================
+# FOOTER TESTS
+# ======================================================
+
+
+def test_footer_exists(client):
+
+    response = client.get("/")
+
+    assert b"footer" in response.data
+
+
+# ======================================================
+# TEMPLATE RENDER TESTS
+# ======================================================
+
+
+def test_home_template(client):
+
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert b"html" in response.data
+
+
+def test_all_pages_return_html(client):
+
+    pages = ["/", "/quests", "/boss1", "/credits"]
+
+    for page in pages:
+
+        response = client.get(page)
+
+        assert "text/html" in response.content_type

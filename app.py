@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-# Initialize the Flask application block at the absolute top
+# Initialize Flask application
 app = Flask(__name__)
+
 
 # ==========================================================================
 # CORE PAGES ROUTES
@@ -34,7 +35,7 @@ def contact():
 
 
 # ==========================================================================
-# SIDEBAR ROW ROUTES (Quests Subpage Links)
+# QUEST SUBPAGES
 # ==========================================================================
 
 
@@ -54,7 +55,7 @@ def quest_rewards():
 
 
 # ==========================================================================
-# UPDATED SIDEBAR ROUTES (Main Game Info Subpage & Dropdown Links)
+# GAME INFO SUBPAGES
 # ==========================================================================
 
 
@@ -74,67 +75,8 @@ def primary_tools():
 
 
 # ==========================================================================
-# SMART SEARCH ROUTE ENGINE (For Fixed Navigation Bar Search Input)
+# BOSS PAGES
 # ==========================================================================
-
-
-@app.route("/search")
-def search():
-    query = request.args.get("q", "").lower().strip()
-
-    # Core database keyword routing map matching search terms to functions
-    routes_map = {
-        "home": "home",
-        "hornet": "hornet",
-        "character": "hornet",
-        "map": "threat_levels",
-        "location": "threat_levels",
-        "boss": "primary_tools",
-        "enemy": "primary_tools",
-        "skill": "quest_skills",
-        "item": "quest_items",
-        "reward": "quest_rewards",
-        "dlc": "dlc_info",
-        "contact": "contact",
-    }
-
-    # 1. Exact or partial matched keyword redirect checks
-    for key, endpoint in routes_map.items():
-        if key in query:
-            return redirect(url_for(endpoint))
-
-    # 2. Contextual dynamic page suggestion builders
-    suggestions = []
-
-    if any(x in query for x in ["info", "lore", "game", "phar", "world"]):
-        suggestions.append({"label": "Pharloom Overview", "url": "game_info"})
-        suggestions.append({"label": "Hornet Specifications", "url": "hornet"})
-        suggestions.append({"label": "Maps & Locations", "url": "threat_levels"})
-
-    if any(
-        x in query for x in ["fight", "kill", "combat", "bos", "ene", "tool", "weapon"]
-    ):
-        suggestions.append({"label": "Bosses & Enemies", "url": "primary_tools"})
-        suggestions.append({"label": "Quest Skills", "url": "quest_skills"})
-
-    if any(
-        x in query for x in ["quest", "task", "mission", "side", "bone", "silk", "gift"]
-    ):
-        suggestions.append({"label": "Silk & Bone Tasks", "url": "quests"})
-        suggestions.append({"label": "Quest Items", "url": "quest_items"})
-        suggestions.append({"label": "Extra Rewards", "url": "quest_rewards"})
-
-    # Default fallback array if input is completely random text strings
-    if not suggestions:
-        suggestions = [
-            {"label": "Pharloom Archive Overview", "url": "game_info"},
-            {"label": "Silk & Bone Tasks Overview", "url": "quests"},
-            {"label": "Future DLCs Info", "url": "dlc_info"},
-        ]
-
-    return render_template(
-        "search_error.html", query=request.args.get("q", ""), suggestions=suggestions
-    )
 
 
 @app.route("/boss1")
@@ -153,7 +95,7 @@ def boss3():
 
 
 # ==========================================================================
-# CREDITS PAGE ROUTE
+# CREDITS
 # ==========================================================================
 
 
@@ -162,18 +104,81 @@ def credits():
     return render_template("credits.html")
 
 
-# ======================================================
-# LIVE SEARCH SUGGESTIONS API
-# ======================================================
+# ==========================================================================
+# SMART SEARCH ENGINE
+# ==========================================================================
 
 
-# ======================================================
-# LIVE SEARCH SUGGESTIONS API
-# ======================================================
+@app.route("/search")
+def search():
+
+    query = request.args.get("q", "").lower().strip()
+
+    routes_map = {
+        "home": "home",
+        "hornet": "hornet",
+        "character": "hornet",
+        "map": "threat_levels",
+        "location": "threat_levels",
+        "boss": "primary_tools",
+        "enemy": "primary_tools",
+        "quest": "quests",
+        "task": "quests",
+        "mission": "quests",
+        "skill": "quest_skills",
+        "item": "quest_items",
+        "reward": "quest_rewards",
+        "dlc": "dlc_info",
+        "contact": "contact",
+    }
+
+    # Redirect exact keyword matches
+    for key, endpoint in routes_map.items():
+
+        if key in query:
+            return redirect(url_for(endpoint))
+
+    # Search suggestions
+
+    suggestions = []
+
+    if any(x in query for x in ["info", "lore", "game", "phar", "world"]):
+
+        suggestions.append({"label": "Pharloom Overview", "url": "game_info"})
+
+        suggestions.append({"label": "Hornet Specifications", "url": "hornet"})
+
+        suggestions.append({"label": "Maps & Locations", "url": "threat_levels"})
+
+    if any(x in query for x in ["fight", "combat", "boss", "enemy", "weapon"]):
+
+        suggestions.append({"label": "Bosses & Enemies", "url": "primary_tools"})
+
+    if any(x in query for x in ["quest", "task", "mission", "silk"]):
+
+        suggestions.append({"label": "Silk & Bone Tasks", "url": "quests"})
+
+        suggestions.append({"label": "Quest Items", "url": "quest_items"})
+
+    if not suggestions:
+
+        suggestions = [
+            {"label": "Pharloom Archive Overview", "url": "game_info"},
+            {"label": "Silk & Bone Tasks Overview", "url": "quests"},
+            {"label": "Future DLC Information", "url": "dlc_info"},
+        ]
+
+    return render_template("search_error.html", query=query, suggestions=suggestions)
+
+
+# ==========================================================================
+# LIVE SEARCH API
+# ==========================================================================
 
 
 @app.route("/api/search")
 def live_search():
+
     query = request.args.get("q", "").lower().strip()
 
     pages = [
@@ -237,26 +242,34 @@ def live_search():
     results = []
 
     if query:
+
         for page in pages:
+
             if query in page["name"].lower() or any(
                 query in keyword for keyword in page["keywords"]
             ):
+
                 results.append({"title": page["name"], "url": url_for(page["url"])})
 
     return {"results": results[:5]}
 
 
 # ==========================================================================
-# GLOBAL 404 EXCEPTION ROUTE ENGINE
+# CUSTOM 404 ERROR PAGE
 # ==========================================================================
 
 
 @app.errorhandler(404)
 def page_not_found(e):
-    """Catch broken or unregistered paths gracefully with a styled template."""
+
     return render_template("404.html"), 404
 
 
-# Keep execution code block down at the absolute bottom
+# ==========================================================================
+# RUN APP
+# ==========================================================================
+
+
 if __name__ == "__main__":
+
     app.run(host="0.0.0.0", port=5000, debug=True)
