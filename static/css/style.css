@@ -1277,3 +1277,128 @@ img {
     font-size: 1.1rem;
   }
 }
+
+/* Silk Web themed scrollbar */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8f2d2d;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8f2d2d;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #8f2d2d transparent;
+}
+
+/* =================================
+   CUSTOM THEMED SCROLLBAR
+================================= */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Light mode scrollbar */
+[data-theme="light"]::-webkit-scrollbar-track {
+  background: #f1eadf;
+}
+
+[data-theme="light"]::-webkit-scrollbar-thumb {
+  background: #8f2d2d;
+  border-radius: 20px;
+}
+
+[data-theme="light"]::-webkit-scrollbar-thumb:hover {
+  background: #6e5434;
+}
+
+/* Dark mode scrollbar */
+[data-theme="dark"]::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+[data-theme="dark"]::-webkit-scrollbar-thumb {
+  background: #8f2d2d;
+  border-radius: 20px;
+}
+
+[data-theme="dark"]::-webkit-scrollbar-thumb:hover {
+  background: #8f2d2d;
+}
+
+/* Firefox support */
+[data-theme="light"] {
+  scrollbar-width: thin;
+  scrollbar-color: #8b6f47 #f1eadf;
+}
+
+[data-theme="dark"] {
+  scrollbar-width: thin;
+  scrollbar-color: #c9a86a #111111;
+}
+
+/* =====================================
+   BACK TO TOP BUTTON
+===================================== */
+
+#backToTop {
+  position: fixed;
+
+  bottom: 25px;
+  right: 25px;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  border: none;
+
+  background: var(--accent-color, #6c63ff);
+  color: white;
+
+  font-size: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(20px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s;
+
+  z-index: 999;
+}
+
+#backToTop.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+}
+
+#backToTop:hover {
+  transform: translateY(-5px);
+}

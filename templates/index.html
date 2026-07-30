@@ -199,4 +199,149 @@
   </div>
 </section>
 
+<!-- =====================================
+     ABOUT SILK WEB SECTION
+===================================== -->
+
+<section class="container py-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <h2>About The Silk Web</h2>
+
+      <p>
+        The Silk Web is a fan-made Hollow Knight: Silksong database designed to
+        help players explore Pharloom, discover quests, learn about enemies, and
+        find important game information.
+      </p>
+
+      <p>
+        The website focuses on providing useful information while keeping
+        spoilers to a minimum.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <img
+        src="{{ url_for('static', filename='images/about.jpg') }}"
+        class="img-fluid rounded shadow"
+        alt="Silksong world information"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+     WEBSITE FEATURES SECTION
+===================================== -->
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Website Features</h2>
+
+    <div class="row g-4">
+      <!-- Search -->
+
+      <div class="col-md-4">
+        <div class="card h-100 feature-card">
+          <div class="card-body text-center">
+            <i class="bi bi-search fs-1"></i>
+
+            <h5 class="mt-3">Smart Search</h5>
+
+            <p>Quickly find pages using keyword-based search.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme -->
+
+      <div class="col-md-4">
+        <div class="card h-100 feature-card">
+          <div class="card-body text-center">
+            <i class="bi bi-moon-stars fs-1"></i>
+
+            <h5 class="mt-3">Dark & Light Mode</h5>
+
+            <p>Choose your preferred theme with saved settings.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Responsive -->
+
+      <div class="col-md-4">
+        <div class="card h-100 feature-card">
+          <div class="card-body text-center">
+            <i class="bi bi-phone fs-1"></i>
+
+            <h5 class="mt-3">Responsive Design</h5>
+
+            <p>Works across desktop, tablet and mobile devices.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================
+     EXPLORE PHARLOOM SECTION
+===================================== -->
+
+<section class="container py-5">
+  <h2 class="text-center mb-4">Explore Pharloom</h2>
+
+  <div class="list-group">
+    <a
+      href="{{ url_for('game_info') }}"
+      class="list-group-item list-group-item-action"
+    >
+      🕸 Pharloom Archive Overview
+    </a>
+
+    <a
+      href="{{ url_for('quests') }}"
+      class="list-group-item list-group-item-action"
+    >
+      ⚔ Silksongs Quests
+    </a>
+
+    <a
+      href="{{ url_for('primary_tools') }}"
+      class="list-group-item list-group-item-action"
+    >
+      👑 Bosses & Enemies
+    </a>
+
+    <a
+      href="{{ url_for('dlc_info') }}"
+      class="list-group-item list-group-item-action"
+    >
+      📜 Future DLC Information
+    </a>
+  </div>
+</section>
+
+<!-- =====================================
+     LATEST UPDATES SECTION
+===================================== -->
+
+<section class="container py-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h2>Latest Information</h2>
+
+      <ul>
+        <li>New pages added to the Pharloom Archive.</li>
+
+        <li>Improved responsive navigation for mobile users.</li>
+
+        <li>Added dark and light theme switching.</li>
+
+        <li>Improved search functionality.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 {% endblock %}
