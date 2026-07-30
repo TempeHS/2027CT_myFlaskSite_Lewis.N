@@ -84,61 +84,63 @@ endblock %} {% block content %}
       </ul>
     </div>
 
-    <!-- INFOBOX SIDEBAR -->
+<!-- INFOBOX SIDEBAR -->
 
-    <div class="col-lg-4">
-      <div class="card wiki-infobox-card sticky-top" style="top: 100px">
-        <img
-          src="{{ url_for('static', filename='images/boss1.jpg') }}"
-          class="card-img-top rounded-top"
-          alt="Boss One"
-        />
+<div class="col-lg-4">
+  <div class="wiki-infobox-card sticky-top location-sidebar" style="top: 100px">
 
-        <div class="wiki-card-header p-3">
-          <h3 class="mb-0">Boss One</h3>
-        </div>
+    <img
+      src="{{ url_for('static', filename='images/boss1.jpg') }}"
+      class="card-img-top rounded-top"
+      alt="Lace"
+    />
 
-        <table class="table mb-0 wiki-card-table">
-          <tr>
-            <th>Location</th>
-
-            <td>Deep Docks / The Cradle</td>
-          </tr>
-
-          <tr>
-            <th>Difficulty</th>
-
-            <td>Medium / Hard</td>
-          </tr>
-
-          <tr>
-            <th>Health</th>
-
-            <td>250 (Deep Docks) 800 (The Cradle)</td>
-          </tr>
-
-          <tr>
-            <th>Type</th>
-
-            <td>Boss</td>
-          </tr>
-
-          <tr>
-            <th>Reward</th>
-
-            <td>Bellshrine (Deep Docks)
-Silk Heart (The Cradle)</td>
-          </tr>
-
-          <tr>
-            <th>First Appearance</th>
-
-            <td>Deep Docks</td>
-          </tr>
-        </table>
-      </div>
+    <div class="wiki-card-header p-3">
+      <h3 class="mb-0">Lace</h3>
     </div>
+
+
+    <table class="wiki-card-table mb-0">
+      <tbody>
+
+        <tr>
+          <th>Location</th>
+          <td>Deep Docks / The Cradle</td>
+        </tr>
+
+        <tr>
+          <th>Difficulty</th>
+          <td>Medium / Hard</td>
+        </tr>
+
+        <tr>
+          <th>Health</th>
+          <td>250 (Deep Docks)<br>800 (The Cradle)</td>
+        </tr>
+
+        <tr>
+          <th>Type</th>
+          <td>Boss</td>
+        </tr>
+
+        <tr>
+          <th>Reward</th>
+          <td>
+            Bellshrine (Deep Docks)<br>
+            Silk Heart (The Cradle)
+          </td>
+        </tr>
+
+        <tr>
+          <th>First Appearance</th>
+          <td>Deep Docks</td>
+        </tr>
+
+      </tbody>
+    </table>
+
   </div>
+</div>
 
   {% endblock %}
 </div>

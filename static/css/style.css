@@ -1634,3 +1634,506 @@ html[data-theme="light"] #mainNavbar.navbar-scrolled {
   position: sticky;
   top: 100px;
 }
+
+/* ======================================================
+   SIDEBAR THEME FIX
+====================================================== */
+
+.wiki-infobox-card,
+.wiki-infobox-card h1,
+.wiki-infobox-card h2,
+.wiki-infobox-card h3,
+.wiki-infobox-card p,
+.wiki-infobox-card span,
+.wiki-infobox-card td,
+.wiki-infobox-card th {
+  color: var(--text) !important;
+}
+
+.wiki-card-header {
+  background: var(--bg-surface);
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.wiki-card-table {
+  background: transparent !important;
+  color: var(--text) !important;
+}
+
+.wiki-card-table th {
+  color: var(--text-soft) !important;
+}
+
+.wiki-card-table td {
+  color: var(--text) !important;
+}
+
+/* ======================================================
+   NAVBAR DROPDOWNS - SILK WEB
+====================================================== */
+
+/* =========================
+   MAIN DROPDOWN
+========================= */
+
+.navbar .dropdown-menu {
+  background: var(--bg-surface);
+
+  border: 1px solid var(--card-border);
+
+  border-radius: 12px;
+
+  padding: 8px;
+
+  backdrop-filter: blur(15px);
+
+  display: none;
+
+  opacity: 0;
+
+  transform: translateY(-10px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Bootstrap open state */
+
+.navbar .dropdown-menu.show {
+  display: block;
+
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+/* =========================
+   DROPDOWN ITEMS
+========================= */
+
+.navbar .dropdown-item {
+  color: var(--text);
+
+  border-radius: 8px;
+
+  padding: 10px 15px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.navbar .dropdown-item:hover {
+  background: rgba(184, 58, 58, 0.15);
+
+  color: var(--accent);
+}
+
+/* =========================
+   KEEP BOOTSTRAP DROPDOWN ARROW
+========================= */
+
+/* Main dropdown arrow */
+
+.navbar .dropdown-toggle::after {
+  display: inline-block;
+
+  margin-left: 0.35em;
+
+  vertical-align: 0.15em;
+
+  content: "";
+
+  border-top: 0.3em solid currentColor;
+
+  border-right: 0.3em solid transparent;
+
+  border-bottom: 0;
+
+  border-left: 0.3em solid transparent;
+}
+
+/* =========================
+   NESTED DROPDOWN
+========================= */
+
+.dropdown-submenu {
+  position: relative;
+}
+
+/* Remove Bootstrap arrow from submenu */
+
+.dropdown-submenu > .dropdown-toggle::after {
+  display: none;
+}
+
+/* Submenu position */
+
+.dropdown-submenu > .dropdown-menu {
+  position: absolute;
+
+  top: 0;
+
+  left: 100%;
+
+  margin-left: 8px;
+
+  display: none;
+
+  opacity: 0;
+
+  transform: translateX(-10px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* =========================
+   DESKTOP HOVER OPEN
+========================= */
+
+@media (min-width: 992px) {
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+
+    opacity: 1;
+
+    transform: translateX(0);
+  }
+}
+
+/* =========================
+   MOBILE CLICK OPEN
+========================= */
+
+.dropdown-submenu > .dropdown-menu.show {
+  display: block;
+
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+/* =========================
+   SUBMENU ARROW
+========================= */
+
+.dropdown-submenu > a {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+/* Right arrow */
+
+.dropdown-submenu > a::after {
+  content: "›";
+
+  font-size: 22px;
+
+  line-height: 1;
+
+  margin-left: 15px;
+
+  color: var(--text-soft);
+
+  transition: 0.25s ease;
+}
+
+.dropdown-submenu:hover > a::after {
+  color: var(--accent);
+
+  transform: translateX(3px);
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+[data-theme="dark"] .navbar .dropdown-menu {
+  background: #212529;
+}
+
+[data-theme="dark"] .navbar .dropdown-item {
+  color: white;
+}
+
+[data-theme="dark"] .navbar .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+[data-theme="light"] .navbar .dropdown-menu {
+  background: white;
+}
+
+[data-theme="light"] .navbar .dropdown-item {
+  color: #222;
+}
+
+[data-theme="light"] .navbar .dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+/* ======================================================
+   FIX BOOTSTRAP ACTIVE DROPDOWN LINKS
+====================================================== */
+
+/* Active navbar links */
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+  color: var(--accent) !important;
+  background: transparent !important;
+}
+
+/* Active dropdown items */
+.navbar .dropdown-item.active,
+.navbar .dropdown-item:active {
+  background: rgba(184, 58, 58, 0.15) !important;
+
+  color: var(--accent) !important;
+}
+
+/* Remove Bootstrap blue focus colour */
+.navbar .dropdown-item:focus {
+  background: rgba(184, 58, 58, 0.15) !important;
+
+  color: var(--accent) !important;
+}
+
+/* Remove Bootstrap blue from clicked links */
+.navbar a:focus,
+.navbar a:active {
+  outline: none;
+
+  box-shadow: none;
+}
+
+/* ======================================================
+   LACE PAGE SIDEBAR DARK MODE FIX
+====================================================== */
+
+/* Sidebar container */
+.location-sidebar,
+.wiki-sidebar,
+.sidebar,
+.location-sidebar .card,
+.wiki-sidebar .card {
+  background: var(--bg-surface) !important;
+
+  color: var(--text) !important;
+
+  border: 1px solid var(--card-border) !important;
+}
+
+/* Sidebar headings */
+.location-sidebar h1,
+.location-sidebar h2,
+.location-sidebar h3,
+.location-sidebar h4,
+.location-sidebar h5,
+.location-sidebar p,
+.location-sidebar span,
+.location-sidebar td,
+.location-sidebar th {
+  color: var(--text) !important;
+}
+
+/* Sidebar table */
+.location-sidebar table {
+  background: transparent !important;
+
+  color: var(--text) !important;
+}
+
+.location-sidebar td,
+.location-sidebar th {
+  border-color: var(--card-border) !important;
+}
+
+/* Sidebar header */
+.location-sidebar .wiki-card-header {
+  background: rgba(255, 255, 255, 0.05) !important;
+
+  color: var(--text) !important;
+}
+
+/* Light mode override */
+html[data-theme="light"] .location-sidebar,
+html[data-theme="light"] .wiki-sidebar,
+html[data-theme="light"] .sidebar {
+  background: #ffffff !important;
+
+  color: #1f2937 !important;
+}
+
+/* ======================================================
+   FINAL LACE SIDEBAR DARK MODE OVERRIDE
+====================================================== */
+
+/* Force sidebar background */
+html[data-theme="dark"] .location-sidebar,
+html[data-theme="dark"] .location-sidebar .card,
+html[data-theme="dark"] .location-sidebar .wiki-infobox-card,
+html[data-theme="dark"] .location-sidebar .card-body {
+  background: var(--bg-surface-2) !important;
+  background-color: var(--bg-surface-2) !important;
+  color: var(--text) !important;
+  border-color: var(--card-border) !important;
+}
+
+/* Fix Bootstrap white backgrounds */
+html[data-theme="dark"] .location-sidebar .bg-white,
+html[data-theme="dark"] .location-sidebar .bg-light {
+  background: var(--bg-surface-2) !important;
+  background-color: var(--bg-surface-2) !important;
+}
+
+/* Sidebar text */
+html[data-theme="dark"] .location-sidebar * {
+  color: var(--text) !important;
+}
+
+/* Sidebar header */
+html[data-theme="dark"] .location-sidebar .wiki-card-header {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--text) !important;
+}
+
+/* Tables inside sidebar */
+html[data-theme="dark"] .location-sidebar table,
+html[data-theme="dark"] .location-sidebar tbody,
+html[data-theme="dark"] .location-sidebar tr,
+html[data-theme="dark"] .location-sidebar td,
+html[data-theme="dark"] .location-sidebar th {
+  background: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--card-border) !important;
+}
+
+/* ======================================================
+   LACE INFOBOX FINAL DARK MODE FIX
+====================================================== */
+
+.location-sidebar {
+  background: var(--bg-surface-2) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.location-sidebar img {
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* Header */
+.location-sidebar .wiki-card-header {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--text) !important;
+}
+
+/* Table */
+.location-sidebar .wiki-card-table {
+  width: 100%;
+  background: transparent !important;
+  color: var(--text) !important;
+}
+
+.location-sidebar .wiki-card-table tr,
+.location-sidebar .wiki-card-table td,
+.location-sidebar .wiki-card-table th {
+  background: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--card-border) !important;
+}
+
+.location-sidebar .wiki-card-table th {
+  color: var(--text-soft) !important;
+}
+
+/* Light mode */
+html[data-theme="light"] .location-sidebar {
+  background: #ffffff !important;
+}
+
+html[data-theme="light"] .location-sidebar .wiki-card-table td,
+html[data-theme="light"] .location-sidebar .wiki-card-table th {
+  color: #1f2937 !important;
+}
+
+/* ======================================================
+   GLOBAL BOSS INFOBOX THEME FIX
+   (Lace + Boss 2 + Boss 3)
+====================================================== */
+
+/* Main infobox */
+.wiki-infobox-card {
+  background: var(--bg-surface-2) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--card-border) !important;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Remove Bootstrap card white backgrounds */
+.wiki-infobox-card.card,
+.wiki-infobox-card .card-body,
+.wiki-infobox-card .card-header {
+  background: var(--bg-surface-2) !important;
+  color: var(--text) !important;
+}
+
+/* Image area */
+.wiki-infobox-card .card-img-top {
+  border-bottom: 1px solid var(--card-border);
+}
+
+/* Header */
+.wiki-infobox-card .wiki-card-header {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: var(--text) !important;
+}
+
+/* Table */
+.wiki-infobox-card table,
+.wiki-infobox-card .wiki-card-table {
+  background: transparent !important;
+  color: var(--text) !important;
+}
+
+/* Table rows */
+.wiki-infobox-card tr,
+.wiki-infobox-card td,
+.wiki-infobox-card th {
+  background: transparent !important;
+  color: var(--text) !important;
+  border-color: var(--card-border) !important;
+}
+
+/* Table labels */
+.wiki-infobox-card th {
+  color: var(--text-soft) !important;
+}
+
+/* Dark mode specifically */
+html[data-theme="dark"] .wiki-infobox-card {
+  background: rgba(16, 21, 28, 0.85) !important;
+}
+
+/* Light mode specifically */
+html[data-theme="light"] .wiki-infobox-card {
+  background: #ffffff !important;
+}
+
+html[data-theme="light"] .wiki-infobox-card td,
+html[data-theme="light"] .wiki-infobox-card th {
+  color: #1f2937 !important;
+}

@@ -1,6 +1,12 @@
-<!-- Navigation Links -->
+<!-- =========================
+     NAVBAR CONTENT
+========================== -->
+
+<!-- LEFT NAVIGATION -->
+
 <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-lg-center gap-1">
-  <!-- Home -->
+  <!-- HOME -->
+
   <li class="nav-item">
     <a
       class="nav-link px-3 py-2 rounded-2 {% if request.endpoint == 'home' %}active{% endif %}"
@@ -11,12 +17,12 @@
   </li>
 
   <!-- =========================
-       MAIN INFO
-  ========================== -->
+     MAIN INFO DROPDOWN
+========================== -->
 
   <li class="nav-item dropdown">
     <a
-      class="nav-link dropdown-toggle px-3 py-2 rounded-2 {% if request.endpoint in ['game_info','hornet','threat_levels','primary_tools'] %}active{% endif %}"
+      class="nav-link dropdown-toggle px-3 py-2 rounded-2 {% if request.endpoint in [ 'game_info', 'hornet', 'threat_levels', 'primary_tools', 'boss1', 'boss2', 'boss3' ] %}active{% endif %}"
       href="#"
       role="button"
       data-bs-toggle="dropdown"
@@ -25,16 +31,18 @@
     </a>
 
     <ul class="dropdown-menu shadow border-secondary theme-dropdown">
+      <!-- Pharloom -->
+
       <li>
         <a
           class="dropdown-item {% if request.endpoint == 'game_info' %}active{% endif %}"
           href="{{ url_for('game_info') }}"
         >
-          Pharloom Archive Overview
+          Pharloom Archive
         </a>
       </li>
 
-      <li><hr class="dropdown-divider border-secondary" /></li>
+      <!-- Hornet -->
 
       <li>
         <a
@@ -45,6 +53,8 @@
         </a>
       </li>
 
+      <!-- Maps -->
+
       <li>
         <a
           class="dropdown-item {% if request.endpoint == 'threat_levels' %}active{% endif %}"
@@ -54,24 +64,67 @@
         </a>
       </li>
 
+      <!-- Boss Main Page -->
+
       <li>
         <a
           class="dropdown-item {% if request.endpoint == 'primary_tools' %}active{% endif %}"
           href="{{ url_for('primary_tools') }}"
         >
-          Bosses & Enemies
+          Bosses & Enemies Overview
         </a>
+      </li>
+
+      <li>
+        <hr class="dropdown-divider border-secondary" />
+      </li>
+
+      <!-- =========================
+     NESTED BOSS DATABASE
+========================== -->
+
+      <li class="dropdown-submenu">
+        <a class="dropdown-item" href="#"> Boss Database </a>
+
+        <ul class="dropdown-menu shadow theme-dropdown">
+          <li>
+            <a
+              class="dropdown-item {% if request.endpoint == 'boss1' %}active{% endif %}"
+              href="{{ url_for('boss1') }}"
+            >
+              Lace
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="dropdown-item {% if request.endpoint == 'boss2' %}active{% endif %}"
+              href="{{ url_for('boss2') }}"
+            >
+              Boss Two
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="dropdown-item {% if request.endpoint == 'boss3' %}active{% endif %}"
+              href="{{ url_for('boss3') }}"
+            >
+              Boss Three
+            </a>
+          </li>
+        </ul>
       </li>
     </ul>
   </li>
 
   <!-- =========================
-       QUESTS
-  ========================== -->
+     QUESTS DROPDOWN
+========================== -->
 
   <li class="nav-item dropdown">
     <a
-      class="nav-link dropdown-toggle px-3 py-2 rounded-2 {% if request.endpoint in ['quests','quest_skills','quest_items','quest_rewards'] %}active{% endif %}"
+      class="nav-link dropdown-toggle px-3 py-2 rounded-2 {% if request.endpoint in [ 'quests', 'quest_skills', 'quest_items', 'quest_rewards' ] %}active{% endif %}"
       href="#"
       role="button"
       data-bs-toggle="dropdown"
@@ -85,11 +138,13 @@
           class="dropdown-item {% if request.endpoint == 'quests' %}active{% endif %}"
           href="{{ url_for('quests') }}"
         >
-          Silk & Bone Tasks Overview
+          Silk & Bone Tasks
         </a>
       </li>
 
-      <li><hr class="dropdown-divider border-secondary" /></li>
+      <li>
+        <hr class="dropdown-divider border-secondary" />
+      </li>
 
       <li>
         <a
@@ -127,11 +182,12 @@
       class="nav-link px-3 py-2 rounded-2 {% if request.endpoint == 'dlc_info' %}active{% endif %}"
       href="{{ url_for('dlc_info') }}"
     >
-      Future DLCs Info
+      Future DLCs
     </a>
   </li>
 
-  <!--Credits-->
+  <!-- CREDITS -->
+
   <li class="nav-item">
     <a
       class="nav-link px-3 py-2 rounded-2 {% if request.endpoint == 'credits' %}active{% endif %}"
@@ -141,7 +197,7 @@
     </a>
   </li>
 
-  <!-- Contact -->
+  <!-- CONTACT -->
 
   <li class="nav-item">
     <a
@@ -154,17 +210,16 @@
 </ul>
 
 <!-- =========================
-Right Side Controls
+     RIGHT SIDE
 ========================== -->
 
 <div class="d-flex align-items-center ms-lg-3 gap-2 flex-wrap">
-  <!-- Live Search -->
+  <!-- SEARCH -->
 
   <form
     action="{{ url_for('search') }}"
     method="GET"
     class="wiki-search-form navbar-search"
-    autocomplete="off"
   >
     <div class="search-container">
       <div class="search-wrapper">
@@ -179,24 +234,16 @@ Right Side Controls
           autocomplete="off"
         />
 
-        <button class="search-button" type="submit">Go</button>
+        <button class="search-button">Go</button>
       </div>
-
-      <!-- Live Suggestions Dropdown -->
 
       <div id="searchResults" class="search-results"></div>
     </div>
   </form>
 
-  <!-- Theme Toggle -->
+  <!-- THEME BUTTON -->
 
-  <button
-    id="themeToggle"
-    class="btn btn-outline-light d-flex align-items-center justify-content-center"
-    type="button"
-    aria-label="Toggle theme"
-    title="Toggle Dark / Light Mode"
-  >
+  <button id="themeToggle" class="btn btn-outline-light" type="button">
     <i id="themeIcon" class="bi bi-moon-stars-fill"></i>
   </button>
 </div>
