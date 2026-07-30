@@ -82,7 +82,6 @@ The purpose of Silk Web was to create a professional, responsive fan website for
 | Responsive Navigation | Global | Bootstrap navigation bar with dropdown menus that automatically collapse into a hamburger menu on tablets and mobile devices. |
 | Dark & Light Mode | Global | Toggle button allows users to switch between light and dark themes, with preferences saved using Local Storage. |
 | Smart Search | `/search` | Keyword-based search redirects users to the most relevant page or displays suggested pages when no exact match is found. |
-| Live Search Suggestions | `/api/search` | Displays suggested pages beneath the search bar while users type. |
 | Responsive Design | Global | Website layout automatically adapts to desktop, tablet, and mobile screen sizes using Bootstrap's responsive grid system. |
 | Parallax Scrolling | Global | Hero images move at a different speed while scrolling to create a modern visual effect. |
 | Reusable Flask Templates | Global | Uses Jinja templates and partials so the navigation bar, footer, and overall layout remain consistent across every page. |
