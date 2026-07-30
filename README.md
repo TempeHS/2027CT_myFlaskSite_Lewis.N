@@ -62,31 +62,39 @@ The purpose of Silk Web was to create a professional, responsive fan website for
 
 <!-- Paste the Statement of Intent you wrote during planning so the reader can judge your site against it. -->
 
-### 3.2 What You Delivered
+## 3.2 What You Delivered
 
-| Page / Feature            | Route | What it delivers |
-|---------------------------|---------------|------------------------------------------------------------------|
-| Home                      | `/`          | Landing page featuring a Bootstrap carousel, parallax scrolling, welcome section, and feature cards linking to key areas of the website. |
+| Page / Feature | Route | What it delivers |
+|---|---|---|
+| Home | `/` | Landing page featuring a Bootstrap carousel, parallax scrolling, welcome section, feature cards, website introduction sections, latest updates, and navigation links to key areas of the website. |
 | Pharloom Archive Overview | `/game-info` | Provides an overview of Hollow Knight: Silksong and introduces the world of Pharloom. |
-| Hornet Specifications | `/info/pharloom` | Contains information about Hornet, including her abilities and role in the game. |
+| Hornet Specifications | `/info/pharloom` | Contains information about Hornet, including her abilities, tools, and role within the game. |
 | Maps & Locations | `/info/threat-levels` | Displays important locations and maps to help players explore Pharloom. |
-| Bosses & Enemies | `/info/primary-tools` | Provides information about bosses and enemies throughout the game. |
-| Silk & Bone Tasks | `/quests` | Main quests page providing an overview of available quest content. |
-| Quest Skills | `/quests/skills` | Describes skills and abilities gained during quests. |
-| Quest Items | `/quests/items` | Lists important quest items and explains their uses. |
-| Extra Rewards | `/quests/rewards` | Shows optional quest rewards and collectibles. |
+| Bosses & Enemies | `/info/primary-tools` | Provides information about bosses, enemies, and challenges throughout the game. |
+| Silk & Bone Tasks | `/quests` | Main quests page providing an overview of available quest content and objectives. |
+| Quest Skills | `/quests/skills` | Describes skills and abilities gained through completing quests. |
+| Quest Items | `/quests/items` | Lists important quest items and explains their purpose and uses. |
+| Extra Rewards | `/quests/rewards` | Shows optional quest rewards, collectibles, and additional content. |
 | Future DLC Information | `/dlc` | Provides information about planned or future downloadable content. |
 | Credits | `/credits` | Acknowledges Team Cherry, third-party resources, and project contributors. |
 | Contact | `/contact` | Contact page allowing users to submit feedback or enquiries. |
 | Custom 404 Page | Invalid routes | Displays a custom Hollow Knight themed error page when users visit a page that does not exist. |
-| Responsive Navigation | Global | Bootstrap navigation bar with dropdown menus that automatically collapse into a hamburger menu on tablets and mobile devices. |
-| Dark & Light Mode | Global | Toggle button allows users to switch between light and dark themes, with preferences saved using Local Storage. |
-| Smart Search | `/search` | Keyword-based search redirects users to the most relevant page or displays suggested pages when no exact match is found. |
+| Responsive Navigation | Global | Bootstrap navigation bar with dropdown menus that automatically collapse into a mobile hamburger menu on smaller devices. Includes active page highlighting and hover animations. |
+| Animated Navbar Logo | Global | Adds a professional animated website logo featuring a subtle glow pulse, hover glow effect, and silk-thread inspired underline animation. |
+| Dark & Light Mode | Global | Allows users to switch between light and dark themes with smooth transitions and saved preferences using Local Storage. |
+| Theme Persistence | Global | Automatically remembers the user's selected theme between visits and detects system theme preference on first visit. |
+| Smart Search | `/search` | Keyword-based search redirects users to the most relevant page or displays available suggestions when no exact match is found. |
+| Live Search Suggestions | `/api/search` | Displays dynamic search suggestions below the search bar while users type, improving navigation speed. |
+| Back To Top Button | Global | Floating button appears after scrolling and smoothly returns users to the top of long pages. |
+| Page Loading Animation | Global | Displays a custom branded loading screen with an animated spinner while pages load, creating a smoother user experience. |
+| Page Transition Animation | Global | Adds smooth fade transitions when moving between internal pages to make navigation feel more like an application. |
+| Parallax Scrolling | Global | Hero images and selected content sections move at different speeds while scrolling to create depth and a modern visual effect. |
+| Interactive Feature Cards | Home | Feature cards include hover animations, image zoom effects, elevation changes, and clickable navigation links. |
+| Custom Scrollbar | Global | Uses a smaller themed scrollbar with different styling for dark and light modes to match the website design. |
 | Responsive Design | Global | Website layout automatically adapts to desktop, tablet, and mobile screen sizes using Bootstrap's responsive grid system. |
-| Parallax Scrolling | Global | Hero images move at a different speed while scrolling to create a modern visual effect. |
-| Reusable Flask Templates | Global | Uses Jinja templates and partials so the navigation bar, footer, and overall layout remain consistent across every page. |
-| Theme Persistence | Global | The selected theme is remembered between visits using browser Local Storage. |
-| Bootstrap Components | Global | Uses a responsive navbar, dropdown menus, carousel, cards, forms, buttons, icons, and grid layout throughout the website. |
+| Reusable Flask Templates | Global | Uses Jinja templates and partials so navigation bars, footers, and shared layouts remain consistent across every page. |
+| Bootstrap Components | Global | Uses responsive Bootstrap components including navigation bars, dropdown menus, carousel, cards, forms, buttons, icons, and grid layouts. |
+| Footer Upgrade | Global | Redesigned footer containing website navigation links, project information, Flask and Bootstrap credits, and copyright information. |
 | Automated Testing | Project | Includes pytest tests to verify website routes and ensure important pages load correctly. |
 
 ### 3.3 Evaluation Against Your Intent (2–3 paragraphs)
