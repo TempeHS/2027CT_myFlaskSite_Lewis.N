@@ -138,6 +138,100 @@ def search():
 
 
 # ==========================================================================
+# CREDITS PAGE ROUTE
+# ==========================================================================
+
+
+@app.route("/credits")
+def credits():
+    return render_template("credits.html")
+
+
+# ======================================================
+# LIVE SEARCH SUGGESTIONS API
+# ======================================================
+
+
+# ======================================================
+# LIVE SEARCH SUGGESTIONS API
+# ======================================================
+
+
+@app.route("/api/search")
+def live_search():
+    query = request.args.get("q", "").lower().strip()
+
+    pages = [
+        {
+            "name": "Pharloom Archive Overview",
+            "url": "game_info",
+            "keywords": ["info", "pharloom", "world", "archive"],
+        },
+        {
+            "name": "Hornet Specifications",
+            "url": "hornet",
+            "keywords": ["hornet", "character", "needle"],
+        },
+        {
+            "name": "Maps & Locations",
+            "url": "threat_levels",
+            "keywords": ["map", "location", "area"],
+        },
+        {
+            "name": "Bosses & Enemies",
+            "url": "primary_tools",
+            "keywords": ["boss", "enemy", "fight"],
+        },
+        {
+            "name": "Silk & Bone Tasks",
+            "url": "quests",
+            "keywords": ["quest", "task", "mission"],
+        },
+        {
+            "name": "Quest Skills",
+            "url": "quest_skills",
+            "keywords": ["skill", "ability"],
+        },
+        {
+            "name": "Quest Items",
+            "url": "quest_items",
+            "keywords": ["item", "collect"],
+        },
+        {
+            "name": "Extra Rewards",
+            "url": "quest_rewards",
+            "keywords": ["reward", "gift"],
+        },
+        {
+            "name": "Future DLC Information",
+            "url": "dlc_info",
+            "keywords": ["dlc", "update"],
+        },
+        {
+            "name": "Credits",
+            "url": "credits",
+            "keywords": ["credit", "developer"],
+        },
+        {
+            "name": "Contact",
+            "url": "contact",
+            "keywords": ["contact", "message"],
+        },
+    ]
+
+    results = []
+
+    if query:
+        for page in pages:
+            if query in page["name"].lower() or any(
+                query in keyword for keyword in page["keywords"]
+            ):
+                results.append({"title": page["name"], "url": url_for(page["url"])})
+
+    return {"results": results[:5]}
+
+
+# ==========================================================================
 # GLOBAL 404 EXCEPTION ROUTE ENGINE
 # ==========================================================================
 

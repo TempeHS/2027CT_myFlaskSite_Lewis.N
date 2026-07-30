@@ -1,0 +1,116 @@
+{% extends 'base.html' %} {% block title %} Credits - The Silk Web {% endblock
+%} {% block content %}
+
+<div class="container my-5 credits-page">
+  <!-- Breadcrumb -->
+
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('home') }}"> Home </a>
+      </li>
+
+      <li class="breadcrumb-item active">Credits</li>
+    </ol>
+  </nav>
+
+  <!-- Header -->
+
+  <div class="text-center mb-5 reveal-on-scroll">
+    <h1 class="text-theme border-bottom border-secondary pb-3">
+      The Silk Web Archives
+    </h1>
+
+    <p class="text-muted">Development information and project credits.</p>
+  </div>
+
+  <!-- Developer -->
+
+  <div class="row justify-content-center mb-5">
+    <div class="col-lg-6 reveal-on-scroll">
+      <div class="credit-card">
+        <i class="bi bi-code-slash credit-icon"></i>
+
+        <h2>Developer</h2>
+
+        <p>
+          The Silk Web is a fan-made Hollow Knight: Silksong database created by
+          Lewis.
+        </p>
+
+        <p>
+          The goal of this project is to provide a clean, spoiler-free archive
+          for players exploring Pharloom.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Technology Cards -->
+
+  <h2 class="text-center mb-4 reveal-on-scroll">Technologies Used</h2>
+
+  <div class="row g-4">
+    <div class="col-md-3 reveal-on-scroll">
+      <div class="credit-card small-card">
+        <i class="bi bi-filetype-html credit-icon"></i>
+
+        <h5>HTML</h5>
+
+        <p>Website structure</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 reveal-on-scroll">
+      <div class="credit-card small-card">
+        <i class="bi bi-palette credit-icon"></i>
+
+        <h5>CSS</h5>
+
+        <p>Custom Silksong styling</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 reveal-on-scroll">
+      <div class="credit-card small-card">
+        <i class="bi bi-bootstrap credit-icon"></i>
+
+        <h5>Bootstrap</h5>
+
+        <p>Responsive components</p>
+      </div>
+    </div>
+
+    <div class="col-md-3 reveal-on-scroll">
+      <div class="credit-card small-card">
+        <i class="bi bi-server credit-icon"></i>
+
+        <h5>Flask</h5>
+
+        <p>Backend framework</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Acknowledgements -->
+
+  <div class="row mt-5">
+    <div class="col-lg-8 mx-auto reveal-on-scroll">
+      <div class="credit-card">
+        <h3>Acknowledgements</h3>
+
+        <ul class="text-start">
+          <li>Team Cherry - creators of Hollow Knight and Silksong</li>
+
+          <li>Bootstrap - responsive design framework</li>
+
+          <li>Bootstrap Icons - interface icons</li>
+
+          <li>Flask - Python web framework</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

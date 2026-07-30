@@ -38,7 +38,7 @@
 
   /* Accent */
 
-  --accent: #0d6efd;
+  --accent: #b83a3a;
 }
 
 /* ===================================
@@ -339,7 +339,7 @@ body.page-loaded {
 .wiki-search-form .form-control:focus {
   border-color: var(--accent);
 
-  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(184, 58, 58, 0.25);
 }
 
 /* ---------- Forms ---------- */
@@ -358,7 +358,7 @@ textarea {
 textarea:focus {
   border-color: var(--accent);
 
-  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(184, 58, 58, 0.25);
 }
 
 /* ---------- Contact ---------- */
@@ -531,7 +531,7 @@ footer,
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0b5ed7;
+  background: #8f2d2d;
 }
 
 /* ======================================================
@@ -641,4 +641,345 @@ html[data-theme="dark"] .navbar.navbar-scrolled {
 
 .error-small {
   color: rgba(255, 255, 255, 0.68);
+}
+
+/* Clean Silksong-style carousel */
+#heroCarousel {
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 0;
+  padding: 0;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+#heroCarousel .carousel-inner,
+#heroCarousel .carousel-item {
+  border-radius: 20px;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#heroCarousel img {
+  border-radius: 20px;
+  border: none !important;
+  box-shadow: none !important;
+  height: 500px;
+  object-fit: cover;
+}
+
+/* ======================================================
+   NAVBAR SEARCH BAR
+====================================================== */
+
+.navbar-search {
+  width: 260px;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--card-border);
+  border-radius: 30px;
+  padding: 3px 5px 3px 12px;
+  backdrop-filter: blur(12px);
+  transition: 0.3s ease;
+}
+
+.search-icon {
+  color: var(--text-soft);
+  margin-right: 8px;
+}
+
+.search-input {
+  background: transparent !important;
+  border: none !important;
+  color: var(--text) !important;
+  padding: 8px 5px;
+  font-size: 0.9rem;
+}
+
+.search-input::placeholder {
+  color: var(--text-soft);
+}
+
+.search-input:focus {
+  box-shadow: none !important;
+}
+
+.search-button {
+  border: none;
+  background: var(--accent);
+  color: white;
+  border-radius: 20px;
+  padding: 6px 14px;
+  transition: 0.25s;
+}
+
+.search-button:hover {
+  transform: scale(1.05);
+}
+
+.search-wrapper:hover,
+.search-wrapper:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(184, 58, 58, 0.35);
+}
+
+@media (max-width: 991px) {
+  .navbar-search {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+/* ===================================
+   WIKI SIDEBAR HEADER THEME
+=================================== */
+
+.wiki-card-header {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--card-border);
+  transition: 0.35s ease;
+}
+
+/* Light mode */
+html[data-theme="light"] .wiki-card-header {
+  background: #f7f8fa;
+  color: #1f2937 !important;
+}
+
+/* ===================================
+   THEME TEXT HELPERS
+=================================== */
+
+.text-theme {
+  color: var(--text) !important;
+}
+
+.text-soft {
+  color: var(--text-soft) !important;
+}
+
+/* ===================================
+   WIKI INFOBOX HEADER
+=================================== */
+
+.wiki-card-header {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text) !important;
+  border-bottom: 1px solid var(--card-border);
+  transition: 0.35s ease;
+}
+
+html[data-theme="light"] .wiki-card-header {
+  background: #f7f8fa;
+  color: #1f2937 !important;
+}
+
+/* ===================================
+   CREDITS PAGE
+=================================== */
+
+.credit-card {
+  background: var(--card);
+
+  border: 1px solid var(--card-border);
+
+  border-radius: 20px;
+
+  padding: 2rem;
+
+  text-align: center;
+
+  color: var(--text);
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.credit-card:hover {
+  transform: translateY(-8px);
+
+  border-color: var(--accent);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+.credit-icon {
+  font-size: 3rem;
+
+  color: var(--accent);
+
+  margin-bottom: 1rem;
+}
+
+.small-card {
+  height: 100%;
+}
+
+.credits-page {
+  animation: creditsFade 0.7s ease;
+}
+
+@keyframes creditsFade {
+  from {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+/* ======================================================
+   SILKSONG RED ACCENT OVERRIDE
+====================================================== */
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover,
+.dropdown-item:hover,
+.credit-icon,
+.search-button {
+  color: var(--accent) !important;
+}
+
+.search-button {
+  background: var(--accent);
+  color: white !important;
+}
+
+.search-button:hover {
+  background: #8f2d2d;
+}
+
+.btn-outline-light:hover,
+.btn-outline-dark:hover {
+  border-color: var(--accent);
+}
+
+/* ======================================================
+   FEATURE CARD BUTTONS
+====================================================== */
+
+.feature-card .btn-primary,
+.card .btn-primary {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: white !important;
+  border-radius: 8px;
+  padding: 8px 22px;
+  transition: 0.3s ease;
+}
+
+.feature-card .btn-primary:hover,
+.card .btn-primary:hover {
+  background: #8f2d2d !important;
+  border-color: #8f2d2d !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(184, 58, 58, 0.35);
+}
+
+/* ======================================================
+   CLICKABLE FEATURE CARDS
+====================================================== */
+
+.feature-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.feature-link:hover {
+  color: inherit;
+}
+
+.feature-card {
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent) !important;
+  box-shadow: 0 15px 35px rgba(184, 58, 58, 0.35);
+}
+
+.feature-card .card-title {
+  transition: color 0.3s ease;
+}
+
+.feature-card:hover .card-title {
+  color: var(--accent);
+}
+
+.feature-card img {
+  transition: transform 0.4s ease;
+}
+
+.feature-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ===================================
+   LIVE SEARCH DROPDOWN
+=================================== */
+
+.search-container {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+
+  top: 45px;
+
+  left: 0;
+
+  width: 100%;
+
+  background: var(--bg-surface);
+
+  border: 1px solid var(--card-border);
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  z-index: 9999;
+
+  backdrop-filter: blur(15px);
+}
+
+.search-result-item {
+  display: block;
+
+  padding: 10px 15px;
+
+  color: var(--text);
+
+  text-decoration: none;
+
+  transition: 0.25s;
+}
+
+.search-result-item:hover {
+  background: var(--accent);
+
+  color: white;
 }

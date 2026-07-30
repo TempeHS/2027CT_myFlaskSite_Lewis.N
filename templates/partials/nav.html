@@ -11,8 +11,8 @@
   </li>
 
   <!-- =========================
-         MAIN INFO
-    ========================== -->
+       MAIN INFO
+  ========================== -->
 
   <li class="nav-item dropdown">
     <a
@@ -66,8 +66,8 @@
   </li>
 
   <!-- =========================
-         QUESTS
-    ========================== -->
+       QUESTS
+  ========================== -->
 
   <li class="nav-item dropdown">
     <a
@@ -131,6 +131,16 @@
     </a>
   </li>
 
+  <!--Credits-->
+  <li class="nav-item">
+    <a
+      class="nav-link px-3 py-2 rounded-2 {% if request.endpoint == 'credits' %}active{% endif %}"
+      href="{{ url_for('credits') }}"
+    >
+      Credits
+    </a>
+  </li>
+
   <!-- Contact -->
 
   <li class="nav-item">
@@ -148,37 +158,37 @@
 ========================== -->
 
 <div class="d-flex align-items-center ms-lg-3 gap-2 flex-wrap">
-  <!-- Search -->
+  <!-- Live Search -->
 
   <form
     action="{{ url_for('search') }}"
     method="GET"
-    class="wiki-search-form d-flex align-items-center"
+    class="wiki-search-form navbar-search"
+    autocomplete="off"
   >
-    <div class="input-group input-group-sm">
-      <span
-        class="input-group-text bg-transparent border-secondary text-secondary"
-      >
-        <i class="bi bi-search"></i>
-      </span>
+    <div class="search-container">
+      <div class="search-wrapper">
+        <i class="bi bi-search search-icon"></i>
 
-      <input
-        type="text"
-        name="q"
-        class="form-control"
-        placeholder="Search database..."
-        required
-      />
+        <input
+          id="liveSearch"
+          type="text"
+          name="q"
+          class="form-control search-input"
+          placeholder="Search The Silk Web..."
+          autocomplete="off"
+        />
 
-      <button class="btn btn-outline-light border-secondary" type="submit">
-        Go
-      </button>
+        <button class="search-button" type="submit">Go</button>
+      </div>
+
+      <!-- Live Suggestions Dropdown -->
+
+      <div id="searchResults" class="search-results"></div>
     </div>
   </form>
 
-  <!-- =========================
-         Theme Toggle
-    ========================== -->
+  <!-- Theme Toggle -->
 
   <button
     id="themeToggle"

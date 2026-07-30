@@ -97,64 +97,67 @@ block content %}
     <div class="row">
       <!-- Card 1 -->
       <div class="col-md-4 mb-4 reveal-on-scroll">
-        <div class="card h-100">
-          <img
-            src="{{ url_for('static', filename='images/feature1.jpg') }}"
-            class="card-img-top"
-            alt="Feature 1"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Main game info</h5>
-            <p class="card-text">
-              Discover how to get around hard areas, or what to do next. Almost
-              no spoilers.
-            </p>
-            <a href="{{ url_for('game_info') }}" class="btn btn-primary"
-              >Learn More</a
-            >
+        <a href="{{ url_for('game_info') }}" class="feature-link">
+          <div class="card h-100 feature-card">
+            <img
+              src="{{ url_for('static', filename='images/feature1.jpg') }}"
+              class="card-img-top"
+              alt="Main game info"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Main game info</h5>
+
+              <p class="card-text">
+                Discover how to get around hard areas, or what to do next.
+                Almost no spoilers.
+              </p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Card 2 -->
       <div class="col-md-4 mb-4 reveal-on-scroll">
-        <div class="card h-100">
-          <img
-            src="{{ url_for('static', filename='images/feature2.jpg') }}"
-            class="card-img-top"
-            alt="Feature 2"
-          />
-          <div class="card-body">
-            <h5 class="card-title">Side missions and quests.</h5>
-            <p class="card-text">
-              The stuff you wouldn't normally pay attention to.
-            </p>
-            <a href="{{ url_for('quests') }}" class="btn btn-primary"
-              >Learn More</a
-            >
+        <a href="{{ url_for('quests') }}" class="feature-link">
+          <div class="card h-100 feature-card">
+            <img
+              src="{{ url_for('static', filename='images/feature2.jpg') }}"
+              class="card-img-top"
+              alt="Quests"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">Side missions and quests</h5>
+
+              <p class="card-text">
+                The stuff you wouldn't normally pay attention to.
+              </p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- Card 3 -->
       <div class="col-md-4 mb-4 reveal-on-scroll">
-        <div class="card h-100">
-          <img
-            src="{{ url_for('static', filename='images/feature3.jpg') }}"
-            class="card-img-top"
-            alt="Feature 3"
-          />
-          <div class="card-body">
-            <h5 class="card-title">DLCS</h5>
-            <p class="card-text">
-              Upcoming expansion packs and downloadable contents planned down
-              the line.
-            </p>
-            <a href="{{ url_for('dlc_info') }}" class="btn btn-primary"
-              >Explore DLC</a
-            >
+        <a href="{{ url_for('dlc_info') }}" class="feature-link">
+          <div class="card h-100 feature-card">
+            <img
+              src="{{ url_for('static', filename='images/feature3.jpg') }}"
+              class="card-img-top"
+              alt="DLC information"
+            />
+
+            <div class="card-body">
+              <h5 class="card-title">DLCs</h5>
+
+              <p class="card-text">
+                Upcoming expansion packs and downloadable content planned down
+                the line.
+              </p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
