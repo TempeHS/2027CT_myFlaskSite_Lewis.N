@@ -1476,3 +1476,161 @@ html {
 
   visibility: hidden;
 }
+
+/* =====================================
+   PAGE TRANSITION ANIMATION
+===================================== */
+
+#pageTransition {
+  position: fixed;
+
+  inset: 0;
+
+  background: var(--background-color);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  z-index: 9998;
+
+  transition: opacity 0.35s ease;
+}
+
+/* When leaving a page */
+
+#pageTransition.active {
+  opacity: 1;
+
+  pointer-events: all;
+}
+
+/* =====================================
+   NAVBAR SCROLL EFFECT
+===================================== */
+
+#mainNavbar {
+  transition:
+    background-color 0.3s ease,
+    backdrop-filter 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+#mainNavbar.navbar-scrolled {
+  background: var(--navbar-scroll) !important;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Dark mode scrolling */
+html[data-theme="dark"] #mainNavbar.navbar-scrolled {
+  background: rgba(10, 13, 18, 0.75) !important;
+}
+
+/* Light mode scrolling */
+html[data-theme="light"] #mainNavbar.navbar-scrolled {
+  background: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* =====================================
+   ANIMATED NAVBAR LOGO
+===================================== */
+
+.silk-logo {
+  position: relative;
+
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
+
+  animation: silkGlow 3s ease-in-out infinite;
+}
+
+/* Hover effect */
+
+.silk-logo:hover {
+  animation: none;
+
+  transform: translateY(-2px);
+
+  text-shadow:
+    0 0 8px rgba(214, 40, 40, 0.8),
+    0 0 16px rgba(214, 40, 40, 0.5);
+}
+
+/* Silk thread underline */
+
+.silk-logo::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -5px;
+
+  width: 0%;
+
+  height: 2px;
+
+  background: #d62828;
+
+  transition: width 0.3s ease;
+}
+
+.silk-logo:hover::after {
+  width: 100%;
+}
+
+/* Idle glow animation */
+
+@keyframes silkGlow {
+  0% {
+    text-shadow: 0 0 0 rgba(214, 40, 40, 0);
+  }
+
+  50% {
+    text-shadow: 0 0 8px rgba(214, 40, 40, 0.45);
+  }
+
+  100% {
+    text-shadow: 0 0 0 rgba(214, 40, 40, 0);
+  }
+}
+
+/* =====================================
+   THEME DROPDOWNS
+===================================== */
+
+[data-theme="dark"] .theme-dropdown {
+  background: #212529;
+}
+
+[data-theme="dark"] .theme-dropdown .dropdown-item {
+  color: white;
+}
+
+[data-theme="dark"] .theme-dropdown .dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Light Mode */
+
+[data-theme="light"] .theme-dropdown {
+  background: white;
+}
+
+[data-theme="light"] .theme-dropdown .dropdown-item {
+  color: #222;
+}
+
+[data-theme="light"] .theme-dropdown .dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.location-sidebar {
+  position: sticky;
+  top: 100px;
+}

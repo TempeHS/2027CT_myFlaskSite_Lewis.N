@@ -2,23 +2,21 @@
 // THE SILK WEB MAIN SCRIPT
 // =====================================
 
-// Prevent duplicate script loading
-if (!window.silkWebLoaded) {
-  window.silkWebLoaded = true;
-
+document.addEventListener("DOMContentLoaded", () => {
   // =====================================
-  // LIVE SEARCH SUGGESTIONS
+  // LIVE SEARCH
   // =====================================
 
-  const searchInput = document.getElementById("liveSearchInput");
-  const searchResults = document.getElementById("searchSuggestions");
+  const searchInput = document.getElementById("liveSearch");
+  const searchResults = document.getElementById("searchResults");
 
   if (searchInput && searchResults) {
-    searchInput.addEventListener("input", async function () {
+    searchInput.addEventListener("input", async () => {
       const query = searchInput.value.trim();
 
       if (query.length < 2) {
         searchResults.style.display = "none";
+        searchResults.innerHTML = "";
         return;
       }
 
@@ -31,35 +29,31 @@ if (!window.silkWebLoaded) {
 
         searchResults.innerHTML = "";
 
-        if (data.results.length === 0) {
+        if (!data.results || data.results.length === 0) {
           searchResults.style.display = "none";
           return;
         }
 
         data.results.forEach((result) => {
-          const item = document.createElement("div");
+          const item = document.createElement("a");
 
-          item.className = "search-result";
-
+          item.className = "search-result-item";
+          item.href = result.url;
           item.textContent = result.name;
-
-          item.onclick = function () {
-            window.location.href = result.url;
-          };
 
           searchResults.appendChild(item);
         });
 
         searchResults.style.display = "block";
-      } catch (error) {
-        console.error("Search error:", error);
+      } catch (err) {
+        console.error(err);
       }
     });
 
-    document.addEventListener("click", function (event) {
+    document.addEventListener("click", (e) => {
       if (
-        !searchInput.contains(event.target) &&
-        !searchResults.contains(event.target)
+        !searchInput.contains(e.target) &&
+        !searchResults.contains(e.target)
       ) {
         searchResults.style.display = "none";
       }
@@ -67,98 +61,139 @@ if (!window.silkWebLoaded) {
   }
 
   // =====================================
-  // PAGE LOAD ANIMATION
+  // NAVBAR SCROLL
   // =====================================
 
-  window.addEventListener("load", () => {
-    document.body.classList.add("page-loaded");
-  });
+  const navbar = document.getElementById("mainNavbar");
 
-  // =====================================
-  // NAVBAR SCROLL EFFECT
-  // =====================================
-
-  const mainNavbar = document.getElementById("mainNavbar");
-
-  window.addEventListener("scroll", () => {
-    if (!mainNavbar) return;
+  function updateNavbar() {
+    if (!navbar) return;
 
     if (window.scrollY > 30) {
-      mainNavbar.classList.add("navbar-scrolled");
+      navbar.classList.add("navbar-scrolled");
     } else {
-      mainNavbar.classList.remove("navbar-scrolled");
+      navbar.classList.remove("navbar-scrolled");
     }
-  });
+  }
+
+  updateNavbar();
+
+  window.addEventListener("scroll", updateNavbar);
 
   // =====================================
-  // FEATURE CARD CLICK EFFECT
+  // PARALLAX
   // =====================================
 
-  document.querySelectorAll(".feature-card").forEach((card) => {
-    card.addEventListener("click", () => {
-      const link = card.dataset.link;
+  const parallax = document.querySelectorAll(".parallax, .parallax-card");
 
-      if (link) {
-        window.location.href = link;
-      }
+  function updateParallax() {
+    const scroll = window.scrollY;
+
+    parallax.forEach((el) => {
+      const speed = Number(el.dataset.speed || 0.08);
+
+      el.style.transform = `translateY(${scroll * speed}px)`;
     });
-  });
+  }
+
+  if (parallax.length) {
+    window.addEventListener("scroll", updateParallax);
+  }
 
   // =====================================
-  // PARALLAX SCROLL EFFECT
+  // BACK TO TOP
   // =====================================
 
-  const parallaxElements = document.querySelectorAll(
-    ".parallax, .parallax-card",
-  );
+  const backToTop = document.getElementById("backToTop");
 
-  window.addEventListener("scroll", () => {
-    const scrollY = window.scrollY;
-
-    parallaxElements.forEach((element) => {
-      const speed = element.dataset.speed || 0.2;
-
-      element.style.transform = `translateY(${scrollY * speed}px)`;
-    });
-  });
-
-  // =====================================
-  // BACK TO TOP BUTTON
-  // =====================================
-
-  const backToTopButton = document.getElementById("backToTop");
-
-  if (backToTopButton) {
-    window.addEventListener("scroll", () => {
+  if (backToTop) {
+    function updateButton() {
       if (window.scrollY > 300) {
-        backToTopButton.classList.add("show");
+        backToTop.classList.add("show");
       } else {
-        backToTopButton.classList.remove("show");
+        backToTop.classList.remove("show");
       }
-    });
+    }
 
-    backToTopButton.addEventListener("click", () => {
+    updateButton();
+
+    window.addEventListener("scroll", updateButton);
+
+    backToTop.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
-
         behavior: "smooth",
       });
     });
   }
-}
 
-// =====================================
-// PAGE LOADING ANIMATION
-// =====================================
+  // =====================================
+  // PAGE LOADER
+  // =====================================
 
-const pageLoader = document.getElementById("pageLoader");
+  const loader = document.getElementById("pageLoader");
 
-window.addEventListener("load", () => {
-  if (pageLoader) {
-    pageLoader.classList.add("hide");
+  if (loader) {
+    window.addEventListener("load", () => {
+      loader.classList.add("hide");
 
-    setTimeout(() => {
-      pageLoader.remove();
-    }, 500);
+      setTimeout(() => {
+        loader.remove();
+      }, 500);
+    });
   }
+
+  // =====================================
+  // PAGE TRANSITIONS
+  // =====================================
+
+  const transition = document.getElementById("pageTransition");
+
+  if (transition) {
+    document.body.addEventListener("click", (e) => {
+      const link = e.target.closest("a");
+
+      if (!link) return;
+
+      const href = link.getAttribute("href");
+
+      if (
+        !href ||
+        href.startsWith("#") ||
+        href.startsWith("http") ||
+        link.target === "_blank" ||
+        link.hasAttribute("download")
+      ) {
+        return;
+      }
+
+      e.preventDefault();
+
+      transition.classList.add("active");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 300);
+    });
+  }
+
+  // =====================================
+  // RESTORE AFTER CHROME BACK BUTTON
+  // =====================================
+
+  window.addEventListener("pageshow", () => {
+    updateNavbar();
+
+    if (backToTop) {
+      if (window.scrollY > 300) {
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    }
+
+    if (parallax.length) {
+      updateParallax();
+    }
+  });
 });

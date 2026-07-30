@@ -137,6 +137,21 @@ def search():
     )
 
 
+@app.route("/boss1")
+def boss1():
+    return render_template("boss1.html")
+
+
+@app.route("/boss2")
+def boss2():
+    return render_template("boss2.html")
+
+
+@app.route("/boss3")
+def boss3():
+    return render_template("boss3.html")
+
+
 # ==========================================================================
 # CREDITS PAGE ROUTE
 # ==========================================================================

@@ -1,0 +1,114 @@
+{% extends 'base.html' %} {% block title %} Boss Three - Bestiary - The Silk Web
+{% endblock %} {% block content %}
+
+<div class="container my-5">
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('home') }}">Home</a>
+      </li>
+
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('primary_tools') }}">Bosses & Enemies</a>
+      </li>
+
+      <li class="breadcrumb-item active">Boss Three</li>
+    </ol>
+  </nav>
+
+  <div class="row g-4">
+    <div class="col-lg-8">
+      <h1 class="text-theme border-bottom border-secondary pb-3">Boss Three</h1>
+
+      <p class="lead text-soft">
+        A placeholder entry for Boss Three featuring details about combat
+        mechanics, lore, and rewards.
+      </p>
+
+      <h2 class="mt-5">Overview</h2>
+
+      <p>
+        Add a description of Boss Three, its purpose, and where players
+        encounter it.
+      </p>
+
+      <h2 class="mt-5">Lore</h2>
+
+      <p>Insert background information and story details here.</p>
+
+      <h2 class="mt-5">Attacks & Abilities</h2>
+
+      <ul>
+        <li>Attack pattern placeholder</li>
+
+        <li>Ability placeholder</li>
+
+        <li>Weakness placeholder</li>
+
+        <li>Advanced mechanic placeholder</li>
+      </ul>
+
+      <h2 class="mt-5">Strategy</h2>
+
+      <p>Add combat advice, recommended equipment, and useful tips here.</p>
+
+      <h2 class="mt-5">Rewards</h2>
+
+      <ul>
+        <li>Reward placeholder</li>
+
+        <li>Collectible placeholder</li>
+
+        <li>Unlock placeholder</li>
+      </ul>
+    </div>
+
+    <div class="col-lg-4">
+      <div class="card wiki-infobox-card sticky-top" style="top: 100px">
+        <img
+          src="{{ url_for('static', filename='images/boss3.jpg') }}"
+          class="card-img-top rounded-top"
+          alt="Boss Three"
+        />
+
+        <div class="wiki-card-header p-3">
+          <h3 class="mb-0">Boss Three</h3>
+        </div>
+
+        <table class="table mb-0 wiki-card-table">
+          <tr>
+            <th>Location</th>
+            <td>Unknown</td>
+          </tr>
+
+          <tr>
+            <th>Difficulty</th>
+            <td>Unknown</td>
+          </tr>
+
+          <tr>
+            <th>Health</th>
+            <td>Unknown</td>
+          </tr>
+
+          <tr>
+            <th>Type</th>
+            <td>Boss</td>
+          </tr>
+
+          <tr>
+            <th>Reward</th>
+            <td>Unknown</td>
+          </tr>
+
+          <tr>
+            <th>First Appearance</th>
+            <td>Unknown</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

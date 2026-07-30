@@ -2,7 +2,7 @@
 Silk Web {% endblock %} {% block content %}
 
 <div class="container my-5">
-  <!-- Breadcrumb Navigation -->
+  <!-- Breadcrumb -->
   <nav aria-label="breadcrumb" class="mb-4">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
@@ -13,22 +13,167 @@ Silk Web {% endblock %} {% block content %}
         <a href="{{ url_for('game_info') }}">Main Info</a>
       </li>
 
-      <li class="breadcrumb-item active" aria-current="page">
-        Maps & Locations
-      </li>
+      <li class="breadcrumb-item active">Maps & Locations</li>
     </ol>
   </nav>
 
-  <div class="text-center">
-    <h1 class="text-white border-bottom border-secondary pb-2 mb-4">
+  <!-- Title -->
+
+  <div class="text-center mb-5">
+    <h1 class="text-theme border-bottom border-secondary pb-2">
       World Map & Locations
     </h1>
 
-    <p class="lead">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Structural layout
-      mapping cavern boundaries, transition coordinates, and spillways.
+    <p class="lead text-soft">
+      Explore the different regions of Pharloom and discover important areas,
+      landmarks, and locations.
     </p>
   </div>
+
+  <!-- MAP + SIDEBAR -->
+
+  <div class="row g-4">
+    <!-- MAP IMAGE -->
+
+    <div class="col-lg-8">
+      <div class="card wiki-infobox-card p-3">
+        <img
+          src="{{ url_for('static', filename='images/map.jpg') }}"
+          class="img-fluid rounded"
+          alt="Pharloom World Map"
+        />
+
+        <p class="text-center text-soft mt-3 mb-0">Pharloom World Map</p>
+      </div>
+    </div>
+
+    <!-- LOCATION SIDEBAR -->
+
+    <div class="col-lg-4 location-sidebar">
+      <div class="card wiki-infobox-card">
+        <div class="wiki-card-header p-3">
+          <h4 class="mb-0">Main Locations</h4>
+        </div>
+
+        <div class="list-group list-group-flush">
+          <a href="#location1" class="list-group-item list-group-item-action">
+            Moss Grotto
+          </a>
+
+          <a href="#location2" class="list-group-item list-group-item-action">
+            Deep Docks
+          </a>
+
+          <a href="#location3" class="list-group-item list-group-item-action">
+            The Citadel
+          </a>
+
+          <a href="#location4" class="list-group-item list-group-item-action">
+            The Cradle
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOCATION INFORMATION -->
+
+  <section class="mt-5">
+    <div class="card wiki-infobox-card p-4">
+      <h2 id="location1">Moss Grotto</h2>
+
+      <p>
+        The Moss Grotto is the starting area of Hollow Knight: Silksong. Located
+        in the lowlands of Pharloom, it is a secluded, sparsely populated but
+        largely benign cave overtaken by moss. It is part of the Mosslands
+        alongside Bone Bottom. Moss Grotto is a lush, verdant cave overgrown
+        with plant life. Relatively secluded from the rest of the lowlands, it
+        is covered in vivid lime-green moss and plants, with pools of clear
+        water. A large pit in the Grotto's rough centre extends up into the
+        enormous cavern that houses Bone Bottom, continuing past it all the way
+        to the top of the Blasted Steps. To the left of this pit, the flora and
+        fauna are more prominent, while to the right, the moss gives way to the
+        foundation of bone and rock underneath. Moss Grotto's enemies mostly
+        consist of Mossmirs, small, weak creatures with slow and predictable
+        movement that rarely present a threat. The lack of distinct threats that
+        allows young Mossmirs to survive can be the result of the aggression and
+        protectiveness displayed by the Moss Mothers. As such, Moss Grotto
+        serves as a relatively safe starting area, allowing Hornet to regain her
+        bearings before leaving the secluded safety of the mossy caves. In
+        several locations, Hornet can find a few Mossberries for the Moss Druid,
+        and at the rightmost point of the Grotto is a Needolin door blocking the
+        entrance to Weavenest Atla.
+      </p>
+
+      <hr />
+
+      <h2 id="location2">Deep Docks</h2>
+
+      <p>
+        The Deep Docks is an area in Hollow Knight: Silksong. It is a heavily
+        industrialised forge built atop and within a lake of lava. The Deep
+        Docks is an industrialised forge area in the lowlands of Pharloom. Built
+        by the Citadel, the facility was designed to harvest and deliver rare
+        supplies found only in the volcanic depths of the land. Its main
+        inhabitants are Dock Workers, equipped with bell-shaped helmets,
+        protecting them from falling rubble and attacks from above.
+      </p>
+
+      <hr />
+
+      <h2 id="location3">The Citadel</h2>
+
+      <p>
+        The Citadel is the religious institution that governs Pharloom and the
+        destination for the pilgrims of the kingdom. It is the main location of
+        Act 2 of Hollow Knight: Silksong and houses seven areas inside it:
+        Choral Chambers, Cogwork Core, Grand Gate, High Halls, Memorium,
+        Whispering Vaults, and Whiteward. The Citadel sits in a large cavern at
+        the top of Pharloom. Strong wind blows outside of its upper levels. In
+        contrast with the rest of the kingdom, the city's structures are opulent
+        and intricately sculpted, and its rooms are lavish and richly decorated.
+        The bulk of the Citadel is made of metal and stone, which is covered in
+        gold. It is described as being shining, holy, and eternal. Most of its
+        inhabitants are now dead, with many areas covered in webs and some
+        entrances barred with furniture. Nearly all of the remaining bugs are
+        haunted and roam the halls and chambers of the city, posing a danger to
+        those who still retain their own minds. The city's main entrance is
+        through the Grand Gate, a great gilded door which must be opened with
+        music and song to open the way into the Citadel itself. A long bridge
+        leads to a room with massive scales that can be moved up or down. The
+        lift at the end of this room goes down into the Underworks, while there
+        used to be a passage that went into the Choral Chambers at the top of
+        the scales room. The Choral Chambers was where most of the Citadel's
+        Choir used to sing and where many of the Citadel's facilities were
+        located, such as a restaurant, a spa, and an entrance to a theatre. It
+        also contains the Grand Bellway, the only Bellway Station in the
+        Citadel. The Ventrica, a network of steam-propelled vessels moved
+        through pipes, provide fast travel within the city. However, they were
+        shut down due to a high number of injuries and unsanctioned deaths, and
+        need to be reactivated again.
+      </p>
+
+      <hr />
+
+      <h2 id="location4">The Cradle</h2>
+
+      <p>
+        The Cradle is an area in Hollow Knight: Silksong. It is the highest peak
+        of Pharloom, the crown of the Citadel, and where Grand Mother Silk lies.
+        The Cradle is an area located above the Citadel in which Grand Mother
+        Silk resides, asleep. Below her, there is an area which contains several
+        cages that were used to capture descendants of the Weavers, similar to
+        how Hornet was captured at the beginning of the game. The Cradle also
+        features a small field of white flowers, where Lace guards the Citadel
+        lift's rise to the top. When Act 3 is initiated, Hornet awakens in the
+        Cradle after it is destroyed by the Void, with only her Hunter Crest,
+        Silkspear ability, and no Tools to aid her escape. Rubble blocks many
+        paths that were once open to her, and she returns to Pharloom through a
+        newly-opened side path that circumvents the destroyed upper Cogwork
+        Core.
+      </p>
+    </div>
+  </section>
 </div>
 
 {% endblock %}

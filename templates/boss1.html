@@ -1,0 +1,144 @@
+{% extends 'base.html' %} {% block title %} Lace - Bestiary - The Silk Web {%
+endblock %} {% block content %}
+
+<div class="container my-5">
+  <!-- Breadcrumb -->
+
+  <nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('home') }}"> Home </a>
+      </li>
+
+      <li class="breadcrumb-item">
+        <a href="{{ url_for('primary_tools') }}"> Bosses & Enemies </a>
+      </li>
+
+      <li class="breadcrumb-item active">Lace</li>
+    </ol>
+  </nav>
+
+  <div class="row g-4">
+    <!-- MAIN CONTENT -->
+
+    <div class="col-lg-8">
+      <h1 class="text-theme border-bottom border-secondary pb-3">Lace</h1>
+
+      <p class="lead text-soft">
+        Lace is a recurring NPC and boss in Hollow Knight: Silksong. A deadly
+        fencer wielding a gilded pin, she is a being woven entirely from the
+        Silk of her mother. She battles Hornet twice within the Deep Docks and
+        the Cradle to prevent her from reaching the peak of the Citadel. Lost
+        Lace is her powerful void-possessed form.
+      </p>
+
+      <h2 class="mt-5">Background</h2>
+
+      <p>
+        Lace is the daughter of Grand Mother Silk, spun entirely from threads of
+        her Silk. The Mother created her to be a loyal child who would want the
+        Mother to wake up from her slumber, unlike her other creations, the
+        Weavers. Her body was spun pure yet frail, shaped to have the look and
+        mind of a child. Phantom is her sibling, but they became frayed and were
+        discarded, their Silk stretched thin and their shell stiffened.
+      </p>
+
+      <h2 class="mt-5">In-game Events</h2>
+
+      <p>
+        Lace is a recurring antagonist to Hornet, and can be found throughout
+        her journey in Pharloom. She can be encountered in every Act of the
+        game.
+      </p>
+
+      <h2 class="mt-5">Act 1</h2>
+
+      <ul>
+        <li>
+          Lace conducting Silk Flies in the Deep Docks Lace can be first
+          encountered in Deep Docks after acquiring Swift Step. She is
+          conducting the movement of Silk Flies and talks about Hornet's fall
+          from the cage she was captured in, potentially suggesting she was the
+          one who was responsible for the fall.[15] She fights Hornet at the end
+          of the conversation, stating she wants to save Hornet from the
+          suffering she would have to face above.[16]
+        </li>
+      </ul>
+
+      <h2 class="mt-5">Behaviour and Tactics</h2>
+
+      <p>
+        In her first encounter and fight in the Deep Docks, Lace uses the
+        following attacks and manoeuvres: Lunge: Lace dashes forwards across the
+        platform with her pin extended, covering roughly 60% of it. Double Cut:
+        Lace slashes twice, making large arcs over her head. Each slash moves
+        her forwards a slight distance. Balestra: Lace launches herself at an
+        angle into the air and slashes a full circle around her body with her
+        pin at the height of the jump. She then lunges diagonally downwards,
+        skidding a short distance upon landing. While at the peak of her jump,
+        Lace can change the direction of her lunge depending on Hornet's
+        position.
+      </p>
+
+
+      </ul>
+    </div>
+
+    <!-- INFOBOX SIDEBAR -->
+
+    <div class="col-lg-4">
+      <div class="card wiki-infobox-card sticky-top" style="top: 100px">
+        <img
+          src="{{ url_for('static', filename='images/boss1.jpg') }}"
+          class="card-img-top rounded-top"
+          alt="Boss One"
+        />
+
+        <div class="wiki-card-header p-3">
+          <h3 class="mb-0">Boss One</h3>
+        </div>
+
+        <table class="table mb-0 wiki-card-table">
+          <tr>
+            <th>Location</th>
+
+            <td>Deep Docks / The Cradle</td>
+          </tr>
+
+          <tr>
+            <th>Difficulty</th>
+
+            <td>Medium / Hard</td>
+          </tr>
+
+          <tr>
+            <th>Health</th>
+
+            <td>250 (Deep Docks) 800 (The Cradle)</td>
+          </tr>
+
+          <tr>
+            <th>Type</th>
+
+            <td>Boss</td>
+          </tr>
+
+          <tr>
+            <th>Reward</th>
+
+            <td>Bellshrine (Deep Docks)
+Silk Heart (The Cradle)</td>
+          </tr>
+
+          <tr>
+            <th>First Appearance</th>
+
+            <td>Deep Docks</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>

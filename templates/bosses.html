@@ -3,6 +3,7 @@ Silk Web {% endblock %} {% block content %}
 
 <div class="container my-5">
   <!-- Breadcrumb Navigation -->
+
   <nav aria-label="breadcrumb" class="mb-4">
     <ol class="breadcrumb">
       <li class="breadcrumb-item">
@@ -13,23 +14,98 @@ Silk Web {% endblock %} {% block content %}
         <a href="{{ url_for('game_info') }}">Main Info</a>
       </li>
 
-      <li class="breadcrumb-item active" aria-current="page">
-        Bosses & Enemies
-      </li>
+      <li class="breadcrumb-item active">Bosses & Enemies</li>
     </ol>
   </nav>
 
-  <div class="text-center">
-    <h1 class="text-white border-bottom border-secondary pb-2 mb-4">
+  <!-- Page Title -->
+
+  <div class="text-center mb-5">
+    <h1 class="text-theme border-bottom border-secondary pb-2 mb-4">
       Bestiary: Bosses & Enemies
     </h1>
 
-    <p class="lead">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Combat logs
-      detailing threat levels, enemy behaviour, attack patterns, health values,
-      and encounter strategies throughout the Kingdom of Pharloom.
+    <p class="lead text-soft">
+      Bosses are unique enemies in Hollow Knight: Silksong. They typically have
+      higher health and deal more damage than the standard creatures in the same
+      area. Hornet may have to defeat a boss to access a new area, acquire an
+      item, complete a Quest, or simply further the main story of the game. When
+      Hornet encounters a boss, their name appears on-screen, and the music
+      typically changes into a battle theme. Not including bosses with repeated
+      fights, there are 43 bosses in Hollow Knight: Silksong; counting repeated
+      fights, there are 47 bosses.
     </p>
   </div>
-</div>
 
-{% endblock %}
+  <!-- Boss Cards -->
+
+  <div class="row g-4">
+    <!-- Boss 1 -->
+
+    <div class="col-lg-4 col-md-6">
+      <a href="{{ url_for('boss1') }}" class="feature-link">
+        <div class="card feature-card h-100">
+          <img
+            src="{{ url_for('static', filename='images/boss1.jpg') }}"
+            class="card-img-top"
+            alt="Boss One"
+          />
+
+          <div class="card-body text-center">
+            <h3 class="card-title">Lace</h3>
+
+            <p class="card-text text-soft">
+              View boss information, abilities and strategies.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Boss 2 -->
+
+    <div class="col-lg-4 col-md-6">
+      <a href="{{ url_for('boss2') }}" class="feature-link">
+        <div class="card feature-card h-100">
+          <img
+            src="{{ url_for('static', filename='images/boss2.jpg') }}"
+            class="card-img-top"
+            alt="Boss Two"
+          />
+
+          <div class="card-body text-center">
+            <h3 class="card-title">Phantom</h3>
+
+            <p class="card-text text-soft">
+              View boss information, abilities and strategies.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Boss 3 -->
+
+    <div class="col-lg-4 col-md-6">
+      <a href="{{ url_for('boss3') }}" class="feature-link">
+        <div class="card feature-card h-100">
+          <img
+            src="{{ url_for('static', filename='images/boss3.jpg') }}"
+            class="card-img-top"
+            alt="Boss Three"
+          />
+
+          <div class="card-body text-center">
+            <h3 class="card-title">Grandmother Silk</h3>
+
+            <p class="card-text text-soft">
+              View boss information, abilities and strategies.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  {% endblock %}
+</div>

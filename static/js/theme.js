@@ -87,6 +87,17 @@ window.addEventListener("scroll", () => {
 // ===============================
 
 document.addEventListener("keydown", (event) => {
+  const activeElement = document.activeElement;
+
+  // Ignore shortcut when typing
+  if (
+    activeElement.tagName === "INPUT" ||
+    activeElement.tagName === "TEXTAREA" ||
+    activeElement.isContentEditable
+  ) {
+    return;
+  }
+
   if (
     event.key.toLowerCase() === "d" &&
     !event.ctrlKey &&
