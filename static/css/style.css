@@ -1367,7 +1367,7 @@ html {
 
   border: none;
 
-  background: var(--accent-color, #6c63ff);
+  background: #dc3545;
   color: white;
 
   font-size: 20px;
