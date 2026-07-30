@@ -2137,3 +2137,16 @@ html[data-theme="light"] .wiki-infobox-card td,
 html[data-theme="light"] .wiki-infobox-card th {
   color: #1f2937 !important;
 }
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.navbar-nav {
+  white-space: nowrap;
+}
+
+.navbar-brand {
+  white-space: nowrap;
+}

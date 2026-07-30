@@ -1,55 +1,142 @@
-{% extends 'base.html' %} {% block title %}Contact - My Flask Site{% endblock %}
-{% block content %}
-<div class="container py-5">
-  <h1 class="text-center mb-5">Contact Us</h1>
+```html {% extends 'base.html' %} {% block title %}Contact - The Silk Web{%
+endblock %} {% block content %}
 
-  <div class="row">
-    <!-- Map Column -->
-    <div class="col-lg-6 mb-4">
-      <div class="map-container">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.5461648454384!2d151.20698831521023!3d-33.8688197806656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae401e8b983f%3A0x5017d681632ccc0!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2sus!4v1625234567890"
-          width="100%"
-          height="400"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-        >
-        </iframe>
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="display-4 text-theme">Contact The Silk Web</h1>
+    <p class="lead text-soft">
+      Have feedback, found a bug, or want to suggest new Hollow Knight: Silksong
+      content? We'd love to hear from you.
+    </p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Map -->
+
+    <div class="col-lg-6">
+      <div class="card wiki-infobox-card h-100 shadow">
+        <div class="card-header wiki-card-header">
+          <h3 class="mb-0">Project Location</h3>
+        </div>
+
+        <div class="card-body p-0">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d424146.716300036!2d150.6016522908161!3d-33.847233116518964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b129838f39a743f%3A0x3017d681632a850!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2sus!4v1785450634043!5m2!1sen!2sus"
+            class="w-100"
+            style="border: 0; height: 600px"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+          >
+          </iframe>
+        </div>
       </div>
     </div>
 
-    <!-- Info Column -->
-    <div class="col-lg-6 mb-4">
-      <!-- Contact form will go here in next lesson -->
+    <!-- Contact Information -->
 
-      <!-- Contact Info -->
-      <div class="contact-info mt-4">
-        <h4>Get in Touch</h4>
-        <p>Have questions? We'd love to hear from you!</p>
+    <div class="col-lg-6">
+      <div class="card wiki-infobox-card h-100 shadow">
+        <div class="card-header wiki-card-header">
+          <h3 class="mb-0">Get In Touch</h3>
+        </div>
 
-        <ul class="list-unstyled">
-          <li class="mb-3">
-            <strong>📍 Address:</strong><br />
-            123 Main Street<br />
-            Sydney, NSW 2000
-          </li>
-          <li class="mb-3">
-            <strong>📞 Phone:</strong><br />
-            (02) 1234 5678
-          </li>
-          <li class="mb-3">
-            <strong>✉️ Email:</strong><br />
-            <a href="mailto:info@myflasksite.com">info@myflasksite.com</a>
-          </li>
-          <li class="mb-3">
-            <strong>🕐 Hours:</strong><br />
-            Mon-Fri: 9am - 5pm<br />
-            Sat-Sun: Closed
-          </li>
-        </ul>
+        <div class="card-body">
+          <p>
+            Silk Web is a fan-made Hollow Knight: Silksong guide created for
+            educational purposes. If you have suggestions, notice incorrect
+            information, or would like to recommend new features, feel free to
+            get in touch.
+          </p>
+
+          <hr />
+
+          <p>
+            <strong>📧 Email</strong><br />
+            <a href="mailto:info@silkweb.com"> info@silkweb.com </a>
+          </p>
+
+          <p>
+            <strong>💬 Feedback</strong><br />
+            Suggestions for guides, bosses, maps or quests are always welcome.
+          </p>
+
+          <p>
+            <strong>🐞 Bug Reports</strong><br />
+            Found a broken link or page? Let us know so we can improve the
+            website.
+          </p>
+
+          <p>
+            <strong>🎮 Project</strong><br />
+            Hollow Knight: Silksong Fan Website
+          </p>
+
+          <div class="alert alert-info mt-4 mb-0">
+            <strong>Response Time</strong><br />
+
+            Messages are usually reviewed within 2–3 days.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+
+  <div class="mt-5">
+    <h2 class="mb-4 text-theme">Frequently Asked Questions</h2>
+
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faqOne"
+          >
+            Is Silk Web an official Hollow Knight website?
+          </button>
+        </h2>
+
+        <div
+          id="faqOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            No. Silk Web is a fan-made website created for educational purposes
+            and is not affiliated with Team Cherry.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#faqTwo"
+          >
+            Can I suggest new content?
+          </button>
+        </h2>
+
+        <div
+          id="faqTwo"
+          class="accordion-collapse collapse"
+          data-bs-parent="#faqAccordion"
+        >
+          <div class="accordion-body">
+            Yes! Suggestions for bosses, quests, guides, maps and future
+            improvements are always appreciated.
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-{% endblock %}
+
+{% endblock %} ```

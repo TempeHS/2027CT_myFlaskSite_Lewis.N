@@ -213,13 +213,13 @@
      RIGHT SIDE
 ========================== -->
 
-<div class="d-flex align-items-center ms-lg-3 gap-2 flex-wrap">
+<div class="d-flex align-items-center ms-lg-3 gap-2">
   <!-- SEARCH -->
 
   <form
     action="{{ url_for('search') }}"
     method="GET"
-    class="wiki-search-form navbar-search"
+    class="wiki-search-form d-flex align-items-center mb-0"
   >
     <div class="search-container">
       <div class="search-wrapper">
@@ -234,7 +234,7 @@
           autocomplete="off"
         />
 
-        <button class="search-button">Go</button>
+        <button class="search-button" type="submit">Go</button>
       </div>
 
       <div id="searchResults" class="search-results"></div>
