@@ -1,27 +1,19 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // --- Existing Scroll Reveal Observer Code ---
-  const elements = document.querySelectorAll(".reveal-on-scroll");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("reveal-active");
-        }
-      });
-    },
-    { threshold: 0.15 },
-  );
-  elements.forEach((el) => observer.observe(el));
+// =====================================
+// THE SILK WEB PARALLAX SYSTEM
+// =====================================
 
-  // --- NEW: Navbar Scrolling Fade Listener ---
-  const navbar = document.querySelector(".navbar");
+const parallaxElements = document.querySelectorAll(".parallax");
 
-  window.addEventListener("scroll", () => {
-    // If user scrolls past 50 pixels down, add the class, otherwise clear it
-    if (window.scrollY > 50) {
-      navbar.classList.add("navbar-scrolled");
-    } else {
-      navbar.classList.remove("navbar-scrolled");
-    }
+function updateParallax() {
+  const scrollPosition = window.scrollY;
+
+  parallaxElements.forEach((element) => {
+    const speed = element.dataset.speed || 0.3;
+
+    const offset = scrollPosition * speed;
+
+    element.style.transform = `translateY(${offset}px)`;
   });
-});
+}
+
+window.addEventListener("scroll", updateParallax);

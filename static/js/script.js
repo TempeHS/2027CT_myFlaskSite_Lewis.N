@@ -39,7 +39,7 @@ if (searchInput && searchResults) {
 
         item.className = "search-result";
 
-        item.textContent = result.title;
+        item.textContent = result.name;
 
         item.onclick = function () {
           window.location.href = result.url;
@@ -101,5 +101,23 @@ document.querySelectorAll(".feature-card").forEach((card) => {
     if (link) {
       window.location.href = link;
     }
+  });
+});
+
+// =====================================
+// PARALLAX SCROLL EFFECT
+// =====================================
+
+const parallaxElements = document.querySelectorAll(".parallax, .parallax-card");
+
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+
+  parallaxElements.forEach((element) => {
+    const speed = element.dataset.speed || 0.2;
+
+    const movement = scrollY * speed;
+
+    element.style.transform = `translateY(${movement}px)`;
   });
 });

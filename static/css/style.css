@@ -983,3 +983,297 @@ html[data-theme="light"] .wiki-card-header {
 
   color: white;
 }
+
+.search-container {
+  position: relative;
+}
+
+.search-results {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: none;
+  z-index: 9999;
+}
+
+.search-result-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  color: var(--text);
+  transition: 0.2s;
+}
+
+.search-result-item:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* =====================================
+   PARALLAX SCROLL EFFECT
+===================================== */
+
+.parallax {
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
+.feature-card {
+  cursor: pointer;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border 0.35s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px) scale(1.03);
+
+  border-color: var(--accent);
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+
+.feature-card img {
+  transition: transform 0.5s ease;
+}
+
+.feature-card:hover img {
+  transform: scale(1.08);
+}
+
+.feature-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar-small {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+
+  backdrop-filter: blur(15px);
+}
+
+/* =====================================
+   PARALLAX EFFECT
+===================================== */
+
+.parallax {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.parallax-card {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Prevent image overflow */
+
+.carousel-item {
+  overflow: hidden;
+}
+
+.feature-card {
+  overflow: hidden;
+}
+
+/* ===================================
+   RESPONSIVE HERO
+=================================== */
+
+@media (max-width: 991px) {
+  #heroCarousel img {
+    height: 350px;
+  }
+
+  .carousel-caption {
+    padding: 0.75rem;
+  }
+
+  .carousel-caption h2 {
+    font-size: 1.5rem;
+  }
+
+  .carousel-caption p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  #heroCarousel img {
+    height: 220px;
+  }
+
+  .carousel-caption {
+    display: none !important;
+  }
+}
+/* ===================================
+   FEATURE CARDS
+=================================== */
+
+.feature-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.feature-card {
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .feature-card {
+    margin-bottom: 20px;
+  }
+}
+
+/* ===================================
+   MOBILE NAVBAR
+=================================== */
+
+@media (max-width: 991px) {
+  .navbar-search {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .search-wrapper {
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  #themeToggle {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar-nav {
+    margin-top: 10px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .lead {
+    font-size: 1rem;
+  }
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .contact-info,
+  .contact-form {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .wiki-infobox-card {
+    margin-top: 25px;
+  }
+}
+
+.search-results {
+  width: 100%;
+
+  max-height: 300px;
+
+  overflow-y: auto;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: var(--navbar);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 12px;
+  }
+
+  .navbar-nav {
+    gap: 0 !important;
+  }
+
+  .navbar-nav .nav-item {
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    display: block;
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+/* ===========================
+   MOBILE NAVBAR
+=========================== */
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    margin-top: 1rem;
+  }
+
+  .navbar-search {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .search-container {
+    width: 100%;
+  }
+
+  /* Keep theme button small */
+  #themeToggle {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 50%;
+    padding: 0;
+    flex: 0 0 44px;
+    align-self: flex-start;
+  }
+
+  #themeToggle i {
+    font-size: 1.1rem;
+  }
+}
