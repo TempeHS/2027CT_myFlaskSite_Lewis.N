@@ -37,10 +37,15 @@ This is the most important part of your documentation — it shows your website 
   [Watch the Walkthrough](./docs/walkthrough.mp4)
 -->
 
-| Field            | Detail |
+| Field/Feature            | Detail |
 | ---------------- | ------ |
-| **Link / Embed** |        |
-| **Duration**     |        |
+| Homepage |   <img width="766" height="450" alt="Animation" src="https://github.com/user-attachments/assets/264ec2bd-2c0b-48c5-8fbb-9d9f7899453b" />   |
+|  Navbar   |        |
+| Other Pages | |
+| Search |   |
+| Credits | |
+| Mobile Homepage |  |
+| Extra Features |  |
 
 **Your walkthrough should show:**
 
